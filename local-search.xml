@@ -4,38 +4,25 @@
   
   
   <entry>
-    <title>first</title>
+    <title>微机原理实验</title>
     <link href="/2021/09/08/first/"/>
     <url>/2021/09/08/first/</url>
     
-    <content type="html"><![CDATA[<p>this is test</p><img src="/2021/09/08/first/1.jpg" class="" title="图片引用方法一"> ]]></content>
+    <content type="html"><![CDATA[<h1 id="8255芯片＋8254芯片实现硬延时跑马灯"><a href="#8255芯片＋8254芯片实现硬延时跑马灯" class="headerlink" title="8255芯片＋8254芯片实现硬延时跑马灯"></a>8255芯片＋8254芯片实现硬延时跑马灯</h1><p><strong>仅供参考</strong></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs xml">；此案例中8255的四个端口地址依次为 280H 281H 282H 283H<br>; 8254的依次为 298H 299H 29AH 29BH <br>；8255接Y0 8254接Y3<br>；此程序实现目标，通过开关D0来启动或终止跑马灯，每个灯亮延时2s<br>；这里是用8255的A口来输入8254处理过的脉冲信号，B口输出，C口输入开关状态<br>CODE SEGMENT<br>       ASSUME CS:CODE<br><br>START: <br>       MOV DX,283H<br>       MOV AL,10011001B <br>       OUT DX,AL；向8255写入控制字<br>       <br>-- 初始化8254 使其达到一个2s的延时效果---这里使用了一个级联的方式，使用了1号通道和2号通道级联；<br>       MOV AL,01110101B    ；写入8254 1号通道的控制字<br>       MOV DX,29BH<br>       OUT DX,AL<br>       MOV AL,00H<br>       MOV DX,299H                                      <br>       OUT DX,AL<br>       MOV AL,10H<br>       OUT DX,AL <br>                 <br>       MOV AL,10110111B ；写入8254 2号通道的控制字<br>       MOV DX,29BH<br>       OUT DX,AL<br>       MOV AL,00H<br>       MOV DX,29AH<br>       OUT DX,AL<br>       MOV AL,40H<br>       OUT DX,AL ；初始化结束<br><br>       MOV BL,04H；设定初值，暂存于BL中<br>；读入开关状态，是否是D0接入<br>T1:<br>    MOV DX,282H<br>    IN  AL,DX<br>    TEST AL,01H ；00000001B<br>    JZ T1<br>；读8254输出电平的状态，若为低电平则继续循环，等待高电平到来<br>T2:<br>   MOV DX,280H<br>   IN  AL,DX<br>   TEST AL,01H<br>   JZ T2<br>；前面都准备就绪，开始让第三个灯亮<br>   MOV DX,281H<br>   MOV AL,BL<br>   OUT DX,AL<br> T4:<br>；测试此时是否为高电平，<br>   MOV DX,280H<br>   IN  AL,DX<br>   TEST AL,01H<br>   JNZ T4 <br>；当此刻为高电平，则完成了延时过程，实现了延时2s<br> ；循环左移一位<br>    ROL BL,1<br>    JMP T1  <br><br>CODE ENDS<br>END START<br></code></pre></td></tr></table></figure><p><strong>课程实验总结，仅供参考。</strong></p>]]></content>
     
     
     <categories>
       
-      <category>Java</category>
+      <category>微机原理</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>原创</tag>
+      <tag>微机原理</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2021/09/08/hello-world/"/>
-    <url>/2021/09/08/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
