@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Links">
+            <span class="h2" id="subtitle" title="欢迎留言添加友链">
               
             </span>
 
@@ -199,13 +199,13 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Blog"
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="welcome"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
           <div class="link-text">
-            <div class="link-title">Fluid Blog</div>
-            <div class="link-intro">主题博客</div>
+            <div class="link-title">welcome</div>
+            <div class="link-intro">欢迎</div>
           </div>
         </div>
       </a>
@@ -217,13 +217,13 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Docs"
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="welcome"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
           <div class="link-text">
-            <div class="link-title">Fluid Docs</div>
-            <div class="link-intro">主题使用指南</div>
+            <div class="link-title">welcome</div>
+            <div class="link-intro">欢迎</div>
           </div>
         </div>
       </a>
@@ -235,13 +235,13 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Repo"
+              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="welcome"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
           <div class="link-text">
-            <div class="link-title">Fluid Repo</div>
-            <div class="link-intro">主题 GitHub 仓库</div>
+            <div class="link-title">welcome</div>
+            <div class="link-intro">欢迎</div>
           </div>
         </div>
       </a>
@@ -251,6 +251,33 @@
 
 
 
+
+  <!-- Comments -->
+  <article class="comments" id="comments" lazyload>
+    
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","appKey":"oU9vzJmr9meyrSQCrA1gUtvT","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
 
 
               </div>
