@@ -23,11 +23,29 @@
 <meta property="og:site_name" content="Kreal study blog">
 <meta property="og:description" content="问题 A: 小雏鸟的成人式 2题目描述陶行知先生说：“我们要活的书，不要死的书 ”。 小雏鸟们从书上都是对的到现在能去伪存真的去使用书籍，证明你们长大了。总之就是要有自己的主见，自己的思考。 大白希望大家都能拿到一百分，所以对100这个数以及他的倍数很喜欢。 大白发现，从1开始，一定能找出一个序列从小到大排列，使得每一项都是 恰好能且仅能 被100整除D次。 请你编写程序，找到这个数列里第N个数。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(%5Clog+n)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(%5Clog+n)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a%5En=%5Cbegin%7Bcases%7Da%5E%7Bn-1%7D%5Ccdot+a,&%5Ctext%7Bif+%7D+n+%5Ctext+%7B+is+odd%7D+%5C%5C+a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D%5Ccdot+a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D,+&%5Ctext%7Bif+%7D+n+%5Ctext+%7B+is+even+but+not+0%7D%5C%5C+1,&%5Ctext%7Bif+%7D+n=0%5Cend%7Bcases%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(n)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(1010)_2">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E%7B(1010)_2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E%7B(1000)_2%7D+%5Ccdot+7%5E%7B(10)_2%7D+">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E%7B(100...)_2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E%7B(100...)_2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E2">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5E4">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-e99e321dcff33699093cde2876424dbe_r.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a%5En">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=O(%5Clog+n)">
 <meta property="article:published_time" content="2021-09-09T03:59:32.000Z">
-<meta property="article:modified_time" content="2021-09-09T05:19:21.862Z">
+<meta property="article:modified_time" content="2021-09-09T13:05:25.030Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="算法OJ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=O(%5Clog+n)">
   
   <title>算法OJ练习Ⅰ - Kreal study blog</title>
 
@@ -214,7 +232,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      4.4k 字
     </span>
   
 
@@ -223,7 +241,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      14 分钟
     </span>
   
 
@@ -297,6 +315,59 @@
 <h2 id="代码及思路"><a href="#代码及思路" class="headerlink" title="代码及思路"></a>代码及思路</h2><p>首先题目中的橙汁价格=可乐价格＋矿泉水价格 ，所以我们可以不用考虑购买橙汁，可以去考虑购买可乐或者矿泉水因为可乐和矿泉水的价格只相差50分，可以转换成全部购买矿泉水，然后判断剩下的钱是否大于或者等于50分，满足，则可用矿泉水加上50分去换一瓶可乐，这样可以喝到最多的水。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cmath&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">int</span> T,n;<br><span class="hljs-keyword">int</span> x,y;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; T;<br>    <span class="hljs-keyword">while</span>(T --)<br>    &#123;   <br>        cin &gt;&gt; n;<br>        x = n % <span class="hljs-number">150</span>;<br>        y = n / <span class="hljs-number">150</span>;<br>        <span class="hljs-keyword">while</span>(x &gt;= <span class="hljs-number">50</span> &amp;&amp; y &gt; <span class="hljs-number">0</span>) &#123;<br>            x -= <span class="hljs-number">50</span>;<br>            y -- ;<br>        &#125;<br>        cout &lt;&lt; x &lt;&lt; endl;<br>    &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+
+
+
+
+
+
+
+
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p><strong>快速幂</strong>（<strong>Exponentiation by squaring</strong>，平方求幂）是一种简单而有效的小算法，它可以以<img src="https://www.zhihu.com/equation?tex=O(%5Clog+n)" srcset="/img/loading.gif" lazyload alt="[公式]">的时间复杂度计算乘方。快速幂不仅本身非常常见，而且后续很多算法也都会用到快速幂。</p>
+<p>让我们先来思考一个问题：<strong>7的10次方，怎样算比较快？</strong></p>
+<p>让我们先来思考一个问题：<strong>7的10次方，怎样算比较快？</strong></p>
+<p><strong>方法1：</strong>最朴素的想法，7<em>7=49，49</em>7=343，… 一步一步算，共进行了<strong>9次</strong>乘法。</p>
+<p>这样算无疑太慢了，尤其对计算机的CPU而言，每次运算只乘上一个个位数，无疑太屈才了。这时我们想到，也许可以拆分问题。</p>
+<p><strong>方法2：</strong>先算7的5次方，即7<em>7</em>7<em>7</em>7，再算它的平方，共进行了<strong>5次</strong>乘法。</p>
+<p>但这并不是最优解，因为对于“7的5次方”，我们仍然可以拆分问题。</p>
+<p><strong>方法3：</strong>先算7<em>7得49，则7的5次方为49</em>49*7，再算它的平方，共进行了<strong>4次</strong>乘法。</p>
+<p>模仿这样的过程，我们得到一个在 <img src="https://www.zhihu.com/equation?tex=O(%5Clog+n)" srcset="/img/loading.gif" lazyload alt="[公式]"> 时间内计算出幂的算法，也就是快速幂。</p>
+<h2 id="递归快速幂"><a href="#递归快速幂" class="headerlink" title="递归快速幂"></a>递归快速幂</h2><p>刚刚我们用到的，无非是一个<strong>二分</strong>的思路。我们很自然地可以得到一个递归方程：</p>
+<p><img src="https://www.zhihu.com/equation?tex=a%5En=%5Cbegin%7Bcases%7Da%5E%7Bn-1%7D%5Ccdot+a,&%5Ctext%7Bif+%7D+n+%5Ctext+%7B+is+odd%7D+%5C%5C+a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D%5Ccdot+a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D,+&%5Ctext%7Bif+%7D+n+%5Ctext+%7B+is+even+but+not+0%7D%5C%5C+1,&%5Ctext%7Bif+%7D+n=0%5Cend%7Bcases%7D" srcset="/img/loading.gif" lazyload alt="[公式]"></p>
+<p>计算a的n次方，如果n是偶数（不为0），那么就<strong>先计算a的n/2次方，然后平方</strong>；如果n是奇数，那么就<strong>先计算a的n-1次方，再乘上a</strong>；递归出口是<strong>a的0次方为1</strong>。</p>
+<p>递归快速幂的思路非常自然，代码也很简单（直接把递归方程翻译成代码即可）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//递归快速幂</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">qpow</span>(a, n - <span class="hljs-number">1</span>) * a;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-keyword">int</span> temp = <span class="hljs-built_in">qpow</span>(a, n / <span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">return</span> temp * temp;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意，这个temp变量是必要的，因为如果不把<img src="https://www.zhihu.com/equation?tex=a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D" srcset="/img/loading.gif" lazyload alt="[公式]">记录下来，直接写成qpow(a, n /2)*qpow(a, n /2)，那会计算两次<img src="https://www.zhihu.com/equation?tex=a%5E%7B%5Cfrac%7Bn%7D%7B2%7D%7D" srcset="/img/loading.gif" lazyload alt="[公式]">，整个算法就退化为了 <img src="https://www.zhihu.com/equation?tex=O(n)" srcset="/img/loading.gif" lazyload alt="[公式]"> 。</p>
+<p>在实际问题中，题目常常会要求对一个大素数取模，这是因为计算结果可能会非常巨大，但是在这里考察高精度又没有必要。这时我们的快速幂也应当进行取模，此时应当注意，原则是<strong>步步取模</strong>，如果MOD较大，还应当<strong>开long long</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//递归快速幂（对大素数取模）</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MOD 1000000007</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;<br><span class="hljs-function">ll <span class="hljs-title">qpow</span><span class="hljs-params">(ll a, ll n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">qpow</span>(a, n - <span class="hljs-number">1</span>) * a % MOD;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        ll temp = <span class="hljs-built_in">qpow</span>(a, n / <span class="hljs-number">2</span>) % MOD;<br>        <span class="hljs-keyword">return</span> temp * temp % MOD;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>大家知道，递归虽然<strong>简洁</strong>，但会产生<strong>额外的空间开销</strong>。我们可以把递归改写为循环，来避免对栈空间的大量占用，也就是<strong>非递归快速幂</strong>。</p>
+<h2 id="非递归快速幂"><a href="#非递归快速幂" class="headerlink" title="非递归快速幂"></a>非递归快速幂</h2><p>我们换一个角度来引入非递归的快速幂。还是7的10次方，但这次，我们把10写成<strong>二进制</strong>的形式，也就是 <img src="https://www.zhihu.com/equation?tex=(1010)_2" srcset="/img/loading.gif" lazyload alt="[公式]"> 。</p>
+<p>现在我们要计算 <img src="https://www.zhihu.com/equation?tex=7%5E%7B(1010)_2%7D" srcset="/img/loading.gif" lazyload alt="[公式]"> ，可以怎么做？我们很自然地想到可以把它拆分为 <img src="https://www.zhihu.com/equation?tex=7%5E%7B(1000)_2%7D+%5Ccdot+7%5E%7B(10)_2%7D+" srcset="/img/loading.gif" lazyload alt="[公式]"> . 实际上，对于任意的整数，我们都可以把它拆成若干个 <img src="https://www.zhihu.com/equation?tex=7%5E%7B(100...)_2%7D" srcset="/img/loading.gif" lazyload alt="[公式]"> 的形式相乘。而这些<img src="https://www.zhihu.com/equation?tex=7%5E%7B(100...)_2%7D" srcset="/img/loading.gif" lazyload alt="[公式]">，恰好就是 <img src="https://www.zhihu.com/equation?tex=7%5E1" srcset="/img/loading.gif" lazyload alt="[公式]"> 、<img src="https://www.zhihu.com/equation?tex=7%5E2" srcset="/img/loading.gif" lazyload alt="[公式]">、<img src="https://www.zhihu.com/equation?tex=7%5E4" srcset="/img/loading.gif" lazyload alt="[公式]">……我们只需<strong>不断把底数平方</strong>就可以算出它们。</p>
+<p>我们先看代码，再来仔细推敲这个过程：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//非递归快速幂</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(n)&#123;<br>        <span class="hljs-keyword">if</span>(n&amp;<span class="hljs-number">1</span>)        <span class="hljs-comment">//如果n的当前末位为1</span><br>            ans *= a;  <span class="hljs-comment">//ans乘上当前的a</span><br>        a *= a;        <span class="hljs-comment">//a自乘</span><br>        n &gt;&gt;= <span class="hljs-number">1</span>;       <span class="hljs-comment">//n往右移一位</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>最初ans为1，然后我们一位一位算：</p>
+<p>1010的最后一位是0，所以a^1这一位不要。然后1010变为101，a变为a^2。</p>
+<p>101的最后一位是1，所以a^2这一位是需要的，乘入ans。101变为10，a再自乘。</p>
+<p>10的最后一位是0，跳过，右移，自乘。</p>
+<p>然后1的最后一位是1，ans再乘上a^8。循环结束，返回结果。</p>
+<p><img src="https://pic3.zhimg.com/v2-e99e321dcff33699093cde2876424dbe_r.jpg" srcset="/img/loading.gif" lazyload alt="preview"></p>
+<p>这里的位运算符，**&gt;&gt;<strong>是右移，表示把二进制数</strong>往右移一位<strong>，相当于/2；&amp;是按位与，&amp;1可以理解为</strong>取出二进制数的最后一位**，相当于%2==1。这么一等价，是不是看出了递归和非递归的快速幂的关系了？虽然非递归快速幂因为牵扯到二进制理解起来稍微复杂一点，但基本思路其实和递归快速幂没有太大的出入。</p>
+<h2 id="快速幂的拓展"><a href="#快速幂的拓展" class="headerlink" title="快速幂的拓展"></a>快速幂的拓展</h2><p>上面所述的都是<strong>整数</strong>的快速幂，但其实，在算 <img src="https://www.zhihu.com/equation?tex=a%5En" srcset="/img/loading.gif" lazyload alt="[公式]"> 时，只要a的数据类型支持<strong>乘法</strong>且<strong>满足结合律</strong>，快速幂的算法都是有效的。矩阵、高精度整数，都可以照搬这个思路。下面给出一个模板：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//泛型的非递归快速幂</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function">T <span class="hljs-title">qpow</span><span class="hljs-params">(T a, ll n)</span></span><br><span class="hljs-function"></span>&#123;<br>    T ans = <span class="hljs-number">1</span>; <span class="hljs-comment">// 赋值为乘法单位元，可能要根据构造函数修改</span><br>    <span class="hljs-keyword">while</span> (n)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>)<br>            ans = ans * a; <span class="hljs-comment">// 这里就最好别用自乘了，不然重载完*还要重载*=，有点麻烦。</span><br>        n &gt;&gt;= <span class="hljs-number">1</span>;<br>        a = a * a;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意，较复杂类型的快速幂的时间复杂度不再是简单的 <img src="https://www.zhihu.com/equation?tex=O(%5Clog+n)" srcset="/img/loading.gif" lazyload alt="[公式]"> ，它与底数的乘法的时间复杂度有关。</p>
+<p>例如，<strong>矩阵快速幂</strong>的一个经典应用是求斐波那契数列：</p>
+<p>子序列</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>  N = <span class="hljs-number">2010</span>;<br><span class="hljs-keyword">int</span> f[N][N];<br>string a,b;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>   <span class="hljs-keyword">if</span> (a&gt;=b)  <span class="hljs-keyword">return</span> a;<br>    <span class="hljs-keyword">return</span> b; <br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> i,j,len_a,len_b;    <br>    cin &gt;&gt; a &gt;&gt; b;<br>    len_a = a.<span class="hljs-built_in">length</span>();<br>    len_b = b.<span class="hljs-built_in">length</span>();      <br>    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">1</span>;i &lt;= len_a;i ++ )<br>       &#123;<br>       <span class="hljs-keyword">for</span>(j = <span class="hljs-number">1</span> ;j &lt;= len_b;j ++ )<br>           &#123;<br>           <span class="hljs-keyword">if</span> (a[i<span class="hljs-number">-1</span>] == b[j<span class="hljs-number">-1</span>]) f[i][j] = f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + <span class="hljs-number">1</span>;<br>           <span class="hljs-keyword">else</span> f[i][j]=<span class="hljs-built_in">max</span>(f[i<span class="hljs-number">-1</span>][j],f[i][j<span class="hljs-number">-1</span>]);<br>           &#125;<br>       &#125;     <br>    cout &lt;&lt; f[len_a][len_b];<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<p>快速幂部分知识摘自于：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95902286">https://zhuanlan.zhihu.com/p/95902286</a></p>
 
             </div>
             <hr>
@@ -468,7 +539,7 @@ function createtime() {
     if (String(snum).length == 1) {
         snum = "0" + snum;
     }
-    document.getElementById("timeDate").innerHTML = " 本站已各种夹缝中安全运行 " + dnum + " 天 ";
+    document.getElementById("timeDate").innerHTML = " 本站已运行 " + dnum + " 天 ";
     document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
 }
 setInterval("createtime()", 250);
@@ -581,6 +652,48 @@ setInterval("createtime()", 250);
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
