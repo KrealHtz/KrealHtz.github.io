@@ -23,16 +23,15 @@
 <meta property="og:site_name" content="Kreal study blog">
 <meta property="og:description" content="记录关于电子设计选题内容利用焊接完的电路板完成软件的设计，本次选的题目为温度控制器与蓝牙通信，最终达到手机端能收到温度控制器测得的实时温度，其中温度控制器的核心部件是DS18B20芯片和LCD1602A液晶显示芯片，蓝牙通信的核心部件是HC-08蓝牙串口通信模块，DS18B20芯片用来实现温度测量功能；LCD1602A液晶显示芯片用来实现测量温度显示功能，HC-08蓝牙串口通信模块作为上位安卓机同">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG">
-<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG">
-<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE2.PNG">
-<meta property="og:image" content="http://example.com/img/%E6%A6%82%E8%BF%B0.PNG">
+<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.png">
+<meta property="og:image" content="http://example.com/img/%E6%A6%82%E8%BF%B0.png">
 <meta property="article:published_time" content="2021-12-02T07:53:41.000Z">
-<meta property="article:modified_time" content="2021-12-02T08:34:05.855Z">
+<meta property="article:modified_time" content="2021-12-02T08:36:22.514Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="电子设计">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG">
+<meta name="twitter:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
   
   <title>电子设计总结 - Kreal study blog</title>
 
@@ -271,12 +270,12 @@
               <h1 id="记录关于电子设计"><a href="#记录关于电子设计" class="headerlink" title="记录关于电子设计"></a>记录关于电子设计</h1><h2 id="选题内容"><a href="#选题内容" class="headerlink" title="选题内容"></a>选题内容</h2><p>利用焊接完的电路板完成软件的设计，本次选的题目为温度控制器与蓝牙通信，最终达到手机端能收到温度控制器测得的实时温度，其中温度控制器的核心部件是DS18B20芯片和LCD1602A液晶显示芯片，蓝牙通信的核心部件是HC-08蓝牙串口通信模块，DS18B20芯片用来实现温度测量功能；LCD1602A液晶显示芯片用来实现测量温度显示功能，HC-08蓝牙串口通信模块作为上位安卓机同52单片机通信的桥梁，达到单片机能将所测得温度发送给上位机，上位机能向单片机发送一些指令的效果。</p>
 <p>本次所选的题目，温度控制器实现了实时显示当前温度功能，可以设置上限阈值，即温度报警值，当温度达到阈值时蜂鸣器会响起滴答滴答的声音，同时LCD显示屏右上角显示出“W”代表进入报警状态此时的温度控制器仍然正常工作，当温度低于阈值时解除报警状态。除此之外，还设计了一个APP通过蓝牙模块同单片机通信，可以达到通过手机就能查看当前单片机测得的温度，查看阈值，调整阈值的功能。此项目综合实现了多方面的功能，运用了多个芯片和组件，对单片机知识的掌握是很好的一次考察，通过此项目的实现，提高了我对单片机知识的综合掌握程度。</p>
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>温度控制器主要涉及到的硬件资源有STC89C52RC、LCD1602A显示屏芯片、DS18B20芯片、蜂鸣器、HC-08蓝牙模块。此次实验搭建的蓝牙通信APP使用的是基AppInventor2服务器的WXbit图像化编程工具，能够较为轻松的搭建出一个APP。</p>
-<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.png" srcset="/img/loading.gif" lazyload></p>
+<p>![](/img/示意图2.png</p>
 <p>按照既定计划，本项目的流程为，先实现读取DS18B20模块数据，送给LCD1602模块显示，再之后就是最困难的通信模块构建，本次是基于蓝牙模块实现单片机同上位机（安卓手机）之间的通信，这就需要考虑到它们之间波特率的问题，由于此次实验通过的单片机晶振是12Mhz，12Mhz晶振通信起来误差是非常大的，这是由于其并计算初值时存在的误差。而市面上的蓝牙模块其默认波特率大都为9600，采用9600波特率，单片机根本无法同蓝牙模块建立稳定的通信，所以就要求使用AT指令调整波特率，调整到4800，并且波特率翻倍的情况下才能实现误差为0.16%的通信，较为可靠。</p>
 <p> 其中最头疼的就是数据如何存储发送了，因为串口一次只能发送八位数据，而获取的温度值是有小数的，所以我尝试了两种方案，一是将数据分为整数部分和小数部分，分两次发送，二是将数据存为字符数组，直接发送字符数组，实践证明，第二种效果较好。</p>
-<p><img src="/img/%E6%A6%82%E8%BF%B0.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E6%A6%82%E8%BF%B0.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>蓝牙模块同51系列单片机通信</strong></p>
 <p>最重要的方面就是波特率设置啦，这个方面刚开始做的时候说实话踩了不少坑，因为学校电子设计提供的板子上面的晶振是<strong>12Mhz</strong>，总所周知，<strong>12Mhz</strong>的晶振通信起来误差是非常大的，这是由于其并计算初值时存在的误差。</p>
 <p>最开始，我采用了杨文嘉老师提供的蓝牙模块，调试开始！经过一晚上的摸索，始终没能成功通信，这个时候仔细查阅发现，这个蓝牙模块波特率是固定9600的，而<strong>12Mhz</strong>的晶振产生9600的波特率，误差会达到5%左右，这是无法接受的，所以理所应当的通信不上。然后我在我的另外一个<strong>11.0592Mhz</strong>的单片机上面尝试成功。真的头很大，搞了一晚上还以为是单片机串口坏了。</p>
