@@ -25,10 +25,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG">
 <meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG">
-<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE2.PNG">
+<meta property="og:image" content="http://example.com/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG">
 <meta property="og:image" content="http://example.com/img/%E6%A6%82%E8%BF%B0.PNG">
 <meta property="article:published_time" content="2021-12-02T07:53:41.000Z">
-<meta property="article:modified_time" content="2021-12-02T08:39:59.315Z">
+<meta property="article:modified_time" content="2021-12-02T08:41:42.724Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="电子设计">
 <meta name="twitter:card" content="summary_large_image">
@@ -273,7 +273,7 @@
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>温度控制器主要涉及到的硬件资源有STC89C52RC、LCD1602A显示屏芯片、DS18B20芯片、蜂鸣器、HC-08蓝牙模块。此次实验搭建的蓝牙通信APP使用的是基AppInventor2服务器的WXbit图像化编程工具，能够较为轻松的搭建出一个APP。</p>
 <p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E7%A4%BA%E6%84%8F%E5%9B%BE1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>按照既定计划，本项目的流程为，先实现读取DS18B20模块数据，送给LCD1602模块显示，再之后就是最困难的通信模块构建，本次是基于蓝牙模块实现单片机同上位机（安卓手机）之间的通信，这就需要考虑到它们之间波特率的问题，由于此次实验通过的单片机晶振是12Mhz，12Mhz晶振通信起来误差是非常大的，这是由于其并计算初值时存在的误差。而市面上的蓝牙模块其默认波特率大都为9600，采用9600波特率，单片机根本无法同蓝牙模块建立稳定的通信，所以就要求使用AT指令调整波特率，调整到4800，并且波特率翻倍的情况下才能实现误差为0.16%的通信，较为可靠。</p>
 <p> 其中最头疼的就是数据如何存储发送了，因为串口一次只能发送八位数据，而获取的温度值是有小数的，所以我尝试了两种方案，一是将数据分为整数部分和小数部分，分两次发送，二是将数据存为字符数组，直接发送字符数组，实践证明，第二种效果较好。</p>
 <p><img src="/img/%E6%A6%82%E8%BF%B0.PNG" srcset="/img/loading.gif" lazyload></p>
