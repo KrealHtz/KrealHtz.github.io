@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="EDA复习数据类型BIT和STD_LOGIC区别 TYPE BIT IS(‘0’,’1’) 只有两种取值，而 TYPE STD_LOGIC IS (‘U’,’X’,’0’,’1’,’Z’,’W’,’L’,’H’,’-‘); –有9种取值  顺序语句**信号赋值语句 &lt;&#x3D; 变量赋值语句 :&#x3D; **  CASE语句 1234567891011CASE &lt;表达式&gt; ISWhen &amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EDA复习">
+<meta property="og:url" content="http://example.com/2021/12/10/EDA%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Kreal study blog">
+<meta property="og:description" content="EDA复习数据类型BIT和STD_LOGIC区别 TYPE BIT IS(‘0’,’1’) 只有两种取值，而 TYPE STD_LOGIC IS (‘U’,’X’,’0’,’1’,’Z’,’W’,’L’,’H’,’-‘); –有9种取值  顺序语句**信号赋值语句 &lt;&#x3D; 变量赋值语句 :&#x3D; **  CASE语句 1234567891011CASE &lt;表达式&gt; ISWhen &amp;lt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/zhang/AppData/Roaming/Typora/typora-user-images/image-20211209165313117.png">
+<meta property="og:image" content="http://example.com/2021/12/10/img/EDA%E5%A4%8D%E4%B9%A0/image-20211209170050919.png">
+<meta property="og:image" content="http://example.com/2021/12/10/img/EDA%E5%A4%8D%E4%B9%A0/image-20211209201027090.png">
+<meta property="og:image" content="http://example.com/2021/12/10/img/EDA%E5%A4%8D%E4%B9%A0/image-20211209201808521.png">
+<meta property="og:image" content="http://example.com/2021/12/10/img/EDA%E5%A4%8D%E4%B9%A0/image-20211209203637046.png">
+<meta property="article:published_time" content="2021-12-10T07:53:41.000Z">
+<meta property="article:modified_time" content="2021-12-24T08:40:06.510Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="EDA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/zhang/AppData/Roaming/Typora/typora-user-images/image-20211209165313117.png">
+  
+  <title>EDA复习 - Kreal study blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/ccs/daxiji.css%20-%20/ccs/bangshidiy.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","app_key":"oU9vzJmr9meyrSQCrA1gUtvT","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kreal</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/test00.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="EDA复习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 15:53" pubdate>
+        December 10, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">EDA复习</h1>
+            
+            <div class="markdown-body">
+              <h1 id="EDA复习"><a href="#EDA复习" class="headerlink" title="EDA复习"></a>EDA复习</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><strong>BIT和STD_LOGIC区别</strong></p>
+<p><strong>TYPE BIT IS(‘0’,’1’)</strong> 只有两种取值，而 <strong>TYPE STD_LOGIC IS (‘U’,’X’,’0’,’1’,’Z’,’W’,’L’,’H’,’-‘)</strong>; –有9种取值</p>
+<p><img src="C:/Users/zhang/AppData/Roaming/Typora/typora-user-images/image-20211209165313117.png" srcset="/img/loading.gif" lazyload alt="image-20211209165313117"></p>
+<h2 id="顺序语句"><a href="#顺序语句" class="headerlink" title="顺序语句"></a>顺序语句</h2><p>**信号赋值语句 &lt;= 变量赋值语句 := ** </p>
+<p><strong>CASE语句</strong></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-keyword">CASE</span> &lt;表达式&gt; <span class="hljs-keyword">IS</span><br><span class="hljs-keyword">When</span> &lt;选择值或标识符&gt; =&gt; &lt;顺序语句&gt;; ... ; &lt;顺序语句&gt; ；<br><span class="hljs-keyword">When</span> &lt;选择值或标识符&gt; =&gt; &lt;顺序语句&gt;; ... ; &lt;顺序语句&gt; ；<br>...<br><span class="hljs-keyword">WHEN</span> <span class="hljs-keyword">OTHERS</span> =&gt; &lt;顺序语句&gt;;<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">CASE</span> ；<br>可选方式：<br>单个普通数值，如<span class="hljs-number">6</span>。<br>数值选择范围，如(<span class="hljs-number">2</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">4</span>)，表示取值为<span class="hljs-number">2</span>、<span class="hljs-number">3</span>或<span class="hljs-number">4</span>。<br>并列数值，如<span class="hljs-number">3</span><span class="hljs-number">5</span>，表示取值为<span class="hljs-number">3</span>或者<span class="hljs-number">5</span>。 <br>混合方式，以上三种方式的混合。   <br></code></pre></td></tr></table></figure>
+
+<p><strong>PROCESS语句</strong></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">[进程标号: ] <span class="hljs-keyword">PROCESS</span> [ ( 敏感信号参数表  ) ] [<span class="hljs-keyword">IS</span>]<br>[进程说明部分]<br> <span class="hljs-keyword">BEGIN</span><br>     顺序描述语句<br> <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span> [进程标号]; <br></code></pre></td></tr></table></figure>
+
+<p><img src="../img/EDA%E5%A4%8D%E4%B9%A0/image-20211209170050919.png" srcset="/img/loading.gif" lazyload alt="image-20211209170050919"></p>
+<p><strong>IF语句</strong></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br><span class="hljs-keyword">IF</span>   条件句  <span class="hljs-keyword">Then</span> <br>   顺序语句 <br> <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span> ; <br> <br><span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br><span class="hljs-keyword">IF</span>  条件句 <span class="hljs-keyword">Then</span> <br>      顺序语句 <br><span class="hljs-keyword">ELSE</span>  <br>      顺序语句 <br><span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span> ; <br><br><span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br><span class="hljs-keyword">IF</span>  条件句 <span class="hljs-keyword">Then</span><br>     顺序语句<br><span class="hljs-keyword">ELSIF</span>  条件句 <span class="hljs-keyword">Then</span><br>       顺序语句<br>      ...<br><span class="hljs-keyword">ELSE</span><br>     顺序语句<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span> <br><br><span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br><span class="hljs-keyword">IF</span>  条件句 <span class="hljs-keyword">Then</span> <br>       <span class="hljs-keyword">IF</span>  条件句 <span class="hljs-keyword">Then</span> <br>         ...  <br>       <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span> <br><span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>应用</strong></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-comment">--含异步复位和时钟使能的D触发器的VHDL描述 </span><br><br><span class="hljs-keyword">LIBRARY</span> IEEE ;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span> ; <br><span class="hljs-keyword">ENTITY</span> DFF1 <span class="hljs-keyword">IS</span><br>  <span class="hljs-keyword">PORT</span> (CLK, RST, EN, D: <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span> ;<br>            Q : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span> );<br><span class="hljs-keyword">END</span> ;<br><span class="hljs-keyword">ARCHITECTURE</span> bhv <span class="hljs-keyword">OF</span> DFF1 <span class="hljs-keyword">IS</span><br>  <span class="hljs-keyword">SIGNAL</span> Q1 : <span class="hljs-built_in">STD_LOGIC</span>; <br><span class="hljs-keyword">BEGIN</span><br>   <span class="hljs-keyword">PROCESS</span> (CLK,Q1, RST, EN)<br>   <span class="hljs-keyword">BEGIN</span><br>     <span class="hljs-keyword">IF</span>  RST=‘<span class="hljs-number">1</span>’ <span class="hljs-keyword">THEN</span> Q1&lt;=‘<span class="hljs-number">0</span>’;<br>     <span class="hljs-keyword">ELSIF</span> CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK = &#x27;<span class="hljs-number">1</span>‘ <span class="hljs-keyword">THEN</span><br>          <span class="hljs-keyword">IF</span> EN=‘<span class="hljs-number">1</span>’ <span class="hljs-keyword">THEN</span> Q1 &lt;= D; <br>          <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;    <br>     <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>; <br>   <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span> ;<br>      Q &lt;= Q1 ;      <br><span class="hljs-keyword">END</span> bhv; <br><span class="hljs-comment">--说明：若将IF  RST=‘1’ THEN Q1&lt;=‘0’ 写在检测上升沿外面就是异步复位，若写在里面则是同步复位</span><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-comment">--十进制同步使能异步复位加法计数器</span><br><span class="hljs-keyword">LIBRARY</span> IEEE ;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span> ; <br><span class="hljs-keyword">ENTITY</span> CNT10 <span class="hljs-keyword">IS</span><br>    <span class="hljs-keyword">PORT</span> (CLK,RST,EN : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;                     <br>                  CQ : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">3</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>);     <br> 				COUT : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>  );           <br><span class="hljs-keyword">END</span> CNT10;<br><span class="hljs-keyword">ARCHITECTURE</span> behav <span class="hljs-keyword">OF</span> CNT10 <span class="hljs-keyword">IS</span><br><span class="hljs-keyword">BEGIN</span><br>   <span class="hljs-keyword">PROCESS</span>(CLK, RST, EN)<br>     <span class="hljs-keyword">VARIABLE</span>  CQI : <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">3</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>); <br>   <span class="hljs-keyword">BEGIN</span><br>      <span class="hljs-keyword">IF</span> RST = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span>   CQI := (<span class="hljs-keyword">OTHERS</span> =&gt;<span class="hljs-string">&#x27;0&#x27;</span>) ; <br>       <span class="hljs-keyword">ELSIF</span> CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span><br>        <span class="hljs-keyword">IF</span> EN = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span>                        <br>          <span class="hljs-keyword">IF</span> CQI &lt; <span class="hljs-number">9</span> <span class="hljs-keyword">THEN</span>   CQI := CQI + <span class="hljs-number">1</span>; <br>           <span class="hljs-keyword">ELSE</span>    CQI := (<span class="hljs-keyword">OTHERS</span> =&gt;<span class="hljs-string">&#x27;0&#x27;</span>);            <br>          <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>        <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>      <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;   <br>       <span class="hljs-keyword">IF</span> CQI = <span class="hljs-number">9</span> <span class="hljs-keyword">THEN</span> COUT &lt;= <span class="hljs-string">&#x27;1&#x27;</span>; <br>       <span class="hljs-keyword">ELSE</span>    COUT &lt;= <span class="hljs-string">&#x27;0&#x27;</span>;<br>       <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>         CQ &lt;= CQI; <br><span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span>;<br><span class="hljs-keyword">END</span> behav; <br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-comment">--移位寄存器带有同步并行预置功能的8位右移移位寄存器。CLK是移位时钟信号，DIN是8位并行预置数据端口，LOAD是并行数据预置使能信号，QB是串行输出端口</span><br><span class="hljs-keyword">LIBRARY</span> IEEE;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span>;<br><span class="hljs-keyword">ENTITY</span> SHFRT <span class="hljs-keyword">IS</span>                 <span class="hljs-comment">-- 8位右移寄存器</span><br>    <span class="hljs-keyword">PORT</span> (  CLK，LOAD : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;  <br>                    DIN : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">7</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>);<br>                     QB : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>  );<br><span class="hljs-keyword">END</span> SHFRT;<br><span class="hljs-keyword">ARCHITECTURE</span> behav <span class="hljs-keyword">OF</span> SHFRT <span class="hljs-keyword">IS</span><br>    <span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">PROCESS</span> (CLK, LOAD)<br>      <span class="hljs-keyword">VARIABLE</span> REG8 : <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">7</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">BEGIN</span><br>         <span class="hljs-keyword">IF</span> CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span><br>            <span class="hljs-keyword">IF</span> LOAD = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span>  REG8 := DIN; <br>         <span class="hljs-keyword">ELSE</span>  REG8(<span class="hljs-number">6</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>) := REG8(<span class="hljs-number">7</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">1</span>); <br>         <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>         <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>         QB &lt;= REG8(<span class="hljs-number">0</span>); <span class="hljs-comment">-- 输出最低位</span><br>    <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span>;         <br><span class="hljs-keyword">END</span> behav; <br><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>LOOP语句</strong></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">L2 : <span class="hljs-keyword">LOOP</span><br>              a := a+<span class="hljs-number">1</span>;<br>              <span class="hljs-keyword">EXIT</span> L2 <span class="hljs-keyword">WHEN</span> a &gt;<span class="hljs-number">10</span> ;             <span class="hljs-comment">-- 当a大于10时跳出循环</span><br>        <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span> L2;<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="并行语句"><a href="#并行语句" class="headerlink" title="并行语句"></a>并行语句</h2><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-comment">--赋值语句</span><br><span class="hljs-keyword">ARCHITECTURE</span> curt <span class="hljs-keyword">OF</span> bc1 <span class="hljs-keyword">IS</span><br><span class="hljs-keyword">SIGNAL</span> s1, e, f, g, h : <span class="hljs-built_in">STD_LOGIC</span> ;<br><span class="hljs-keyword">BEGIN</span><br>    output1 &lt;= a <span class="hljs-keyword">AND</span> b ;<br>    output2 &lt;= c + d ;<br>    g &lt;= e <span class="hljs-keyword">OR</span> f ;<br>    h &lt;= e <span class="hljs-keyword">XOR</span> f ;<br>    s1 &lt;= g ;<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">ARCHITECTURE</span> curt； <br><span class="hljs-comment">--条件赋值语句</span><br><span class="hljs-keyword">ARCHITECTURE</span> behv <span class="hljs-keyword">OF</span> mux <span class="hljs-keyword">IS</span><br>  <span class="hljs-keyword">BEGIN</span><br>    z  &lt;= a <span class="hljs-keyword">WHEN</span> p1 = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">ELSE</span><br>           b <span class="hljs-keyword">WHEN</span> p2 = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">ELSE</span><br>           c  ;<br> <span class="hljs-keyword">END</span>; <br><span class="hljs-comment">--选择信号赋值语句</span><br><span class="hljs-keyword">WITH</span> 选择表达式 <span class="hljs-keyword">SELECT</span> <br>赋值目标信号 &lt;= 表达式 <span class="hljs-keyword">WHEN</span> 选择值   <br>              表达式 <span class="hljs-keyword">WHEN</span> 选择值<br>                   ...<br>               表达式 <span class="hljs-keyword">WHEN</span> 选择值； <br><br> instruction &lt;= c &amp; b &amp; a ;<br> <span class="hljs-keyword">WITH</span> instruction <span class="hljs-keyword">SELECT</span><br> dataout &lt;=    data1  <span class="hljs-keyword">AND</span> data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;000&quot;</span> ，<br>               data1  <span class="hljs-keyword">OR</span>  data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;001&quot;</span> ，<br>               data1 <span class="hljs-keyword">NAND</span> data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;010&quot;</span> ，<br>               data1 <span class="hljs-keyword">NOR</span>  data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;011&quot;</span> ，<br>               data1 <span class="hljs-keyword">XOR</span>  data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;100&quot;</span> ，<br>               data1 <span class="hljs-keyword">XNOR</span> data2  <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;101&quot;</span> ，<br>                           <span class="hljs-string">&#x27;Z&#x27;</span>   <span class="hljs-keyword">WHEN</span> <span class="hljs-keyword">OTHERS</span> ; <br><span class="hljs-comment">-- 元件例化语句</span><br>    <br><span class="hljs-keyword">COMPONENT</span> 元件名 <span class="hljs-keyword">IS</span> <br>   <span class="hljs-keyword">GENERIC</span> (类属表)；              <span class="hljs-comment">-- 元件定义语句</span><br>   <span class="hljs-keyword">PORT</span>  (端口名表)；<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">COMPONENT</span> 文件名；<br>    <br>例化名 ：元件名 <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(           <span class="hljs-comment">-- 元件例化语句</span><br>         [端口名 =&gt;] 连接端口名，...) ； <br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-comment">--例：半加器例化全加器</span><br><span class="hljs-keyword">LIBRARY</span>  IEEE;   <span class="hljs-comment">--1位二进制全加器顶层设计描述</span><br> <span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span>;<br> <span class="hljs-keyword">ENTITY</span> f_adder <span class="hljs-keyword">IS</span><br>   <span class="hljs-keyword">PORT</span> (ain，bin，cin  : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>              cout，sum   : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span> );<br> <span class="hljs-keyword">END</span> <span class="hljs-keyword">ENTITY</span> f_adder;<br> <span class="hljs-keyword">ARCHITECTURE</span> fd1 <span class="hljs-keyword">OF</span> f_adder <span class="hljs-keyword">IS</span><br>   <span class="hljs-keyword">COMPONENT</span> h_adder                   <span class="hljs-comment">--调用半加器声明语句</span><br>     <span class="hljs-keyword">PORT</span> (  a，b :  <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>       co，so :  <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>);<br>   <span class="hljs-keyword">END</span> <span class="hljs-keyword">COMPONENT</span> ；<br>   <span class="hljs-keyword">COMPONENT</span> or2a<br>      <span class="hljs-keyword">PORT</span> (a，b : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>; <br>                c : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>);<br>   <span class="hljs-keyword">END</span> <span class="hljs-keyword">COMPONENT</span>；<br><span class="hljs-keyword">SIGNAL</span> d，e，f  :  <span class="hljs-built_in">STD_LOGIC</span>; <span class="hljs-comment">--定义3个信号作为内部的连接线。</span><br>  <span class="hljs-keyword">BEGIN</span><br>   u1 : h_adder <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(a=&gt;ain，b=&gt;bin，co=&gt;d，so=&gt;e);  <span class="hljs-comment">--例化语句</span><br>   u2 : h_adder <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(e，  cin， f，sum);<br>   u3 :   or2a   <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(a=&gt;d，  b=&gt;f，   c=&gt;cout);<br> <span class="hljs-keyword">END</span> <span class="hljs-keyword">ARCHITECTURE</span> fd1; <br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="../img/EDA%E5%A4%8D%E4%B9%A0/image-20211209201027090.png" srcset="/img/loading.gif" lazyload alt="image-20211209201027090"></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-keyword">LIBRARY</span> IEEE;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span>;<br><span class="hljs-keyword">ENTITY</span> CONTROL <span class="hljs-keyword">IS</span><br>  <span class="hljs-keyword">PORT</span> ( clk,reset    : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>          inputs : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC_VECTOR</span> (<span class="hljs-number">0</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">1</span>);<br>          red,green,yellow : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span> );<br><span class="hljs-keyword">END</span> CONTROL;<br><span class="hljs-keyword">ARCHITECTURE</span> behv <span class="hljs-keyword">OF</span> CONTROL <span class="hljs-keyword">IS</span><br> <span class="hljs-keyword">TYPE</span> FSM_ST <span class="hljs-keyword">IS</span> (s0, s1, s2);<span class="hljs-comment">--数据类型定义，状态符号化</span><br> <span class="hljs-keyword">SIGNAL</span> current_state, next_state: FSM_ST;<br><span class="hljs-keyword">BEGIN</span><br>REG: <span class="hljs-keyword">PROCESS</span> (reset,clk)                  <span class="hljs-comment">--主控时序进程</span><br>     <span class="hljs-keyword">BEGIN</span><br>      <span class="hljs-keyword">IF</span> reset = ‘<span class="hljs-number">1</span>’ <span class="hljs-keyword">THEN</span>   current_state &lt;= s0;<br>      <span class="hljs-keyword">ELSIF</span> clk=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">AND</span> clk<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">THEN</span>   <br>      current_state &lt;= next_state; <br>      <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>     <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span>;<br>         <br>COM:<span class="hljs-keyword">PROCESS</span>(current_state, inputs)   <span class="hljs-comment">--主控组合进程</span><br>    <span class="hljs-keyword">BEGIN</span><br>     <span class="hljs-keyword">CASE</span> current_state <span class="hljs-keyword">IS</span>                     <br>      <span class="hljs-keyword">WHEN</span> s0 =&gt; red=<span class="hljs-string">&#x27;1&#x27;</span>;green=<span class="hljs-string">&#x27;0&#x27;</span>;yellow=<span class="hljs-string">&#x27;0&#x27;</span>;     <br>        <span class="hljs-keyword">IF</span> state_inputs = <span class="hljs-string">&quot;00&quot;</span> <span class="hljs-keyword">THEN</span>  next_state&lt;=s0;                    <br>           <span class="hljs-keyword">ELSE</span>  next_state&lt;=s1;    <br>        <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>      <span class="hljs-keyword">WHEN</span> s1 =&gt;  red=<span class="hljs-string">&#x27;0&#x27;</span>;green=<span class="hljs-string">&#x27;1&#x27;</span>;yellow=<span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">IF</span> state_inputs = <span class="hljs-string">&quot;01&quot;</span> <span class="hljs-keyword">THEN</span>  next_state&lt;=s1;    <br>        <span class="hljs-keyword">ELSE</span>  next_state&lt;=s2;   <br>        <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>      <span class="hljs-keyword">WHEN</span> s2 =&gt;   red=<span class="hljs-string">&#x27;0&#x27;</span>;green=<span class="hljs-string">&#x27;0&#x27;</span>;yellow=<span class="hljs-string">&#x27;1&#x27;</span>;  <br>        <span class="hljs-keyword">IF</span> state_inputs = <span class="hljs-string">&quot;10&quot;</span> <span class="hljs-keyword">THEN</span>  next_state &lt;= s0;<br>        <span class="hljs-keyword">ELSE</span>  next_state &lt;= s3; <br>        <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>      <span class="hljs-keyword">WHEN</span> <span class="hljs-keyword">OTHERS</span> =&gt; next_state &lt;= s0;  <br>    <span class="hljs-keyword">END</span> <span class="hljs-keyword">case</span>;<br>   <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span>;      <br> <span class="hljs-keyword">END</span> behv; <br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="../img/EDA%E5%A4%8D%E4%B9%A0/image-20211209201808521.png" srcset="/img/loading.gif" lazyload alt="image-20211209201808521"></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs VHDL"><span class="hljs-comment">--八进制同步使能异步复位加法计数器</span><br><span class="hljs-keyword">LIBRARY</span> IEEE ;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span> ; <br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_UNSIGNED.<span class="hljs-keyword">ALL</span>; <span class="hljs-comment">--调用加法运算符时需要添加</span><br><span class="hljs-keyword">ENTITY</span> CNT8 <span class="hljs-keyword">IS</span><br>    <span class="hljs-keyword">PORT</span> (CLK,RST,EN,LOAD : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>; <br>          		COUT : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>                  CQ : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>);     <br> 				DATA : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>));           <br><span class="hljs-keyword">END</span> CNT8;<br><span class="hljs-keyword">ARCHITECTURE</span> behav <span class="hljs-keyword">OF</span> CNT8 <span class="hljs-keyword">IS</span><br><span class="hljs-keyword">BEGIN</span><br>   <span class="hljs-keyword">PROCESS</span>(CLK, RST, EN, LOAD)<br>     <span class="hljs-keyword">VARIABLE</span>  CQI : <span class="hljs-built_in">STD_LOGIC_VECTOR</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">DOWNTO</span> <span class="hljs-number">0</span>); <br>   <span class="hljs-keyword">BEGIN</span><br>       <span class="hljs-keyword">IF</span> RST = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span> CQI := (<span class="hljs-keyword">OTHERS</span> =&gt; <span class="hljs-string">&#x27;0&#x27;</span>);<br>      	 <span class="hljs-keyword">ELSIF</span>  CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span><br>             <span class="hljs-keyword">IF</span> EN = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span><br>               <span class="hljs-keyword">IF</span> LOAD = <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">THEN</span> CQI := DATA;<br>               <span class="hljs-keyword">ELSIF</span> CQI &lt; <span class="hljs-number">7</span> <span class="hljs-keyword">THEN</span> CQI := CQI + <span class="hljs-number">1</span>;<br>             		<span class="hljs-keyword">ELSE</span> CQI := (<span class="hljs-keyword">OTHERS</span> =&gt;<span class="hljs-string">&#x27;0&#x27;</span>);<br>           <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>       <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>     <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>	<span class="hljs-keyword">IF</span> CQI = &#x27;<span class="hljs-number">111</span>&#x27; <span class="hljs-keyword">THEN</span> COUT = <span class="hljs-string">&#x27;1&#x27;</span>;<br>       <span class="hljs-keyword">ELSE</span> COUT = <span class="hljs-string">&#x27;0&#x27;</span>;<br>         <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;<br>       DOUT &lt;= CQI;<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCESS</span>;<br><span class="hljs-keyword">END</span> behav; <br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="../img/EDA%E5%A4%8D%E4%B9%A0/image-20211209203637046.png" srcset="/img/loading.gif" lazyload alt="image-20211209203637046"></p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs VHDL"><span class="hljs-keyword">LIBRARY</span> IEEE ;<br><span class="hljs-keyword">USE</span> IEEE.STD_LOGIC_1164.<span class="hljs-keyword">ALL</span> ; <br><span class="hljs-keyword">ENTITY</span> EXPS <span class="hljs-keyword">IS</span><br>    <span class="hljs-keyword">PORT</span>(IN1, IN2, IN3 : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>         OUT1, OUT2 :<span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>);<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">ENTITY</span> EXPS;<br><span class="hljs-keyword">ARCHITECTURE</span> behav <span class="hljs-keyword">OF</span> EXP <span class="hljs-keyword">IS</span><br>    <span class="hljs-keyword">COMPONENT</span> EXP <br>    	<span class="hljs-keyword">PORT</span>(A1, A2 : <span class="hljs-keyword">IN</span> <span class="hljs-built_in">STD_LOGIC</span>;<br>             Q1, Q2 : <span class="hljs-keyword">OUT</span> <span class="hljs-built_in">STD_LOGIC</span>);<br>    <span class="hljs-keyword">END</span> <span class="hljs-keyword">COMPONENT</span>;<br><span class="hljs-keyword">SIGNAL</span> A, B, C, D : <span class="hljs-built_in">STD_LOGIC</span>;<br>    <span class="hljs-keyword">BEGIN</span> <br>      u1 : EXP <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(IN1, IN2, A, B);<br>      u2 : EXP <span class="hljs-keyword">PORT</span> <span class="hljs-keyword">MAP</span>(A, IN3, C, D);<br>      OUT2 &lt;= <span class="hljs-keyword">NOT</span> B;<br>	  OUT1 &lt;= C <span class="hljs-keyword">AND</span> B;<br><span class="hljs-keyword">END</span> <span class="hljs-keyword">ARCHITECTURE</span> behav;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="信号和变量定义区别"><a href="#信号和变量定义区别" class="headerlink" title="信号和变量定义区别"></a>信号和变量定义区别</h3><p>信号定义在进程外面，变量定义在进程里面。</p>
+<h3 id="常见上升沿表示方法"><a href="#常见上升沿表示方法" class="headerlink" title="常见上升沿表示方法"></a>常见上升沿表示方法</h3><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK= <span class="hljs-string">&#x27;1&#x27;</span> <br>rising_edge(CLK) <span class="hljs-comment">-- 必须打开STD_LOGIC_1164程序包 </span><br><span class="hljs-keyword">wait</span> <span class="hljs-keyword">until</span> CLK = <span class="hljs-string">&#x27;1&#x27;</span>   ;     <span class="hljs-comment">--利用wait语句</span><br>CLK=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">AND</span> CLK<span class="hljs-symbol">&#x27;LAST_VALUE</span>=<span class="hljs-string">&#x27;0&#x27;</span><br>CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> (CLK=<span class="hljs-string">&#x27;1&#x27;</span>) <span class="hljs-keyword">AND</span> (CLK<span class="hljs-symbol">&#x27;LAST_VALUE</span>=<span class="hljs-string">&#x27;0&#x27;</span>) <br>    <br><span class="hljs-comment">--下降</span><br>CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> CLK= <span class="hljs-string">&#x27;0&#x27;</span> <br>CLK<span class="hljs-symbol">&#x27;EVENT</span> <span class="hljs-keyword">AND</span> (CLK=<span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">AND</span> (CLK<span class="hljs-symbol">&#x27;LAST_VALUE</span>=<span class="hljs-string">&#x27;1&#x27;</span>) <br>falling_edge(CLK)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>写类似CASE···WHEN语句的条件判断语句时，一定得考虑到所有状态，不能有遗漏！</p>
+<h3 id="简答"><a href="#简答" class="headerlink" title="简答"></a>简答</h3><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs vhdl"><span class="hljs-keyword">FUNCTION</span> 函数名(参数表) <span class="hljs-keyword">RETURN</span>  数据类型         <span class="hljs-comment">--函数首</span><br><span class="hljs-keyword">FUNCTION</span>  函数名(参数表)<span class="hljs-keyword">RETURN</span>  数据类型 <span class="hljs-keyword">IS</span>   <span class="hljs-comment">-- 函数体</span><br>    [ 说明部分 ]                 <br>    <span class="hljs-keyword">BEGIN</span>                                               <br>    顺序语句 ;                       <br>    <span class="hljs-keyword">END</span> <span class="hljs-keyword">FUNCTION</span>  函数名; <br><br>        <br><span class="hljs-keyword">PROCEDURE</span> 过程名(参数表) <span class="hljs-comment">-- 过程首</span><br> <br><span class="hljs-keyword">PROCEDURE</span> 过程名(参数表) <span class="hljs-keyword">IS</span> <span class="hljs-comment">-- 过程体</span><br>    [说明部分]<br>    BIGIN<br>      顺序语句;<br>     <span class="hljs-keyword">END</span> <span class="hljs-keyword">PROCEDURE</span> 过程名 <br><span class="hljs-comment">--过程与函数的区别：</span><br>过程能返回多个变量，而函数则总是返回一个取值；<br>函数中的所有参数都是输入参数，而过程有输入参数、输出参数和双向参数；<br>过程在结构体或者进程中以语句的形式被调用，而函数经常在赋值语句或表达式中使用。 　　<br><span class="hljs-comment">--状态机</span><br>  <span class="hljs-comment">--优势</span><br>  	状态机克服了纯硬件数字系统顺序方式控制不灵活的缺点；<br>	由于状态机的结构相对简单，设计方案相对固定；<br>	状态机容易构成性能良好的同步时序逻辑模块；<br>	与VHDL的其他描述方式相比，状态机的VHDL表述丰富多样、程序层次分明，结构清晰，易读易懂；在排错、修改和模块移植方面也有其独到的好处；<br>	在高速运算和控制方面，状态机更有其巨大的优势。 <br>	高可靠性。  <br><br><span class="hljs-comment">--区别         </span><br>	基于状态的FSM即Moore(摩尔型)FSM，状态机的输出仅是当前状态的函数，且仅在时钟跃变时发生，通常与时钟同步。<br>   	基于输入的FSM即Mealy(米勒型)FSM，状态机的输出是当前状态和当前输入的函数，不与时钟同步。<br>         <br></code></pre></td></tr></table></figure>
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/EDA/">EDA</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/24/%E5%9F%BA%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%A8Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%85%8D%E7%BD%AEMQTT%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">基基于阿里云服务器在Ubuntu环境下配置MQTT云服务平台</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/02/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">电子设计总结</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","appKey":"oU9vzJmr9meyrSQCrA1gUtvT","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+   <div class="music-player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=513360721&auto=1&height=66"></iframe>
+    </div>
+
+  
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('09/08/2021 8:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/qipao.js"></script>
+<script src="/js/xiaotiao.js"></script>
+<script src="/js/shubiao.js"></script>
+<script src="/js/xiaoxx.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
