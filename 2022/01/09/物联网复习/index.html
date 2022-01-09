@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="物联网复习[toc] 理论部分第一章:概述物联网是什么？物联网是通过各种信息传感设备及系统（如传感器网络、射频识别（RFID）、红外感应器、条码与二维码、全球定位系统、激光扫描器等）和其它基于物物通信模式的短距离无线传感网络，按约定的协议，把任何物体通过各种接入网与互联网连接起来所形成的一个巨大的智能网络，通过这一网络可以进行信息交换、传递和通信，以实现对物体的智能化识别、定位、跟踪、监控和管理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物联网复习">
+<meta property="og:url" content="http://example.com/2022/01/09/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Kreal study blog">
+<meta property="og:description" content="物联网复习[toc] 理论部分第一章:概述物联网是什么？物联网是通过各种信息传感设备及系统（如传感器网络、射频识别（RFID）、红外感应器、条码与二维码、全球定位系统、激光扫描器等）和其它基于物物通信模式的短距离无线传感网络，按约定的协议，把任何物体通过各种接入网与互联网连接起来所形成的一个巨大的智能网络，通过这一网络可以进行信息交换、传递和通信，以实现对物体的智能化识别、定位、跟踪、监控和管理。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/798145858f6f483a93c76d417b7abed6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_18,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cbd4dbed2fae4857af579c954827ddd2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_11,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a0743df071cb4db98aabc3c0d47732d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/29d742d5beb04a60adf4c8341d95b88d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/846b992677d04f0b931f58ad8ce504e6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8c26e4060ce140e88068ab07e7b95220.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/70827566ae2045a1b4f89db32179b158.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/23fcde6c4f834c4f9acc80464ebd1cd7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d8a8ce891a8842b9b46bbbc7738fcf08.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e9f99511ebe348ffa44c934060730950.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_18,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9a2e692ae8dc4b299648812c226cad71.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_15,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b869a4c1fd54ab8b7d928c7934aec4a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/364b32393ee04e998d92835cdc61c8f1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e4807e5eb828427d9b8bd2d0fc5ca128.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6f6bf97999e04a22a5b9187cda2efae2.png">
+<meta property="article:published_time" content="2022-01-09T07:15:10.000Z">
+<meta property="article:modified_time" content="2022-01-09T07:19:13.232Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="物联网">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/798145858f6f483a93c76d417b7abed6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_18,color_FFFFFF,t_70,g_se,x_16">
+  
+  <title>物联网复习 - Kreal study blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/ccs/daxiji.css%20-%20/ccs/bangshidiy.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","app_key":"oU9vzJmr9meyrSQCrA1gUtvT","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kreal</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/test00.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="物联网复习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-09 15:15" pubdate>
+        January 9, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      18k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      57 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">物联网复习</h1>
+            
+            <div class="markdown-body">
+              <h1 id="物联网复习"><a href="#物联网复习" class="headerlink" title="物联网复习"></a>物联网复习</h1><p>[toc]</p>
+<h2 id="理论部分"><a href="#理论部分" class="headerlink" title="理论部分"></a>理论部分</h2><h3 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章:概述"></a>第一章:概述</h3><h4 id="物联网是什么？"><a href="#物联网是什么？" class="headerlink" title="物联网是什么？"></a>物联网是什么？</h4><p>物联网是通过各种信息传感设备及系统（如传感器网络、射频识别（RFID）、红外感应器、条码与二维码、全球定位系统、激光扫描器等）和其它基于物物通信模式的短距离无线传感网络，按约定的协议，把任何物体通过各种接入网与互联网连接起来所形成的一个巨大的智能网络，通过这一网络可以进行信息交换、传递和通信，以实现对物体的智能化识别、定位、跟踪、监控和管理。</p>
+<p><img src="https://img-blog.csdnimg.cn/798145858f6f483a93c76d417b7abed6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_18,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload></p>
+<h4 id="物联网的主要特点与相关概念辨析"><a href="#物联网的主要特点与相关概念辨析" class="headerlink" title="物联网的主要特点与相关概念辨析"></a>物联网的主要特点与相关概念辨析</h4><p><img src="https://img-blog.csdnimg.cn/cbd4dbed2fae4857af579c954827ddd2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_11,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>互联网</strong>：即对需要联网的物一定要能够实现互联互通的互联网络。</p>
+<p><strong>识别与通信</strong>：即纳入联网的“物”一定要具备自动识别与物物通信（M2M）的功能。</p>
+<p><strong>智能化</strong>：即网络系统应该具有自动化、自我反馈与智能控制的特点。</p>
+<p>“<strong>E”社会</strong>，能够实现任何人和任何人在任何时候、任何地点的通信与联系，“三A通信”（Anyone，Anytime，Anywhere），其衡量标准主要有电话普及率、互联网普及率以及计算机普及率。</p>
+<p>“<strong>U”社会</strong>，能够实现任何人和任何人、任何人和任何东西（对象）在任何时候和任何地点的通信与联系，即“四A通信”（Anyone，Anytime，Anywhere,Anything）。其是一个“人-机-物”组成的动态开放的网络社会，即人类社会、信息世界、物理世界组成的三元世界。</p>
+<p><strong>互联网</strong>：连接虚拟信息空间（信息挖掘与共享）</p>
+<p><strong>传感网</strong>：连接现实物理世界（信息获取与感知）<br><img src="https://img-blog.csdnimg.cn/a0743df071cb4db98aabc3c0d47732d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_17,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h4 id="物联网体系结构"><a href="#物联网体系结构" class="headerlink" title="物联网体系结构"></a>物联网体系结构</h4><p>根据信息生成、传输、处理和应用的原则，可以把物联网分为四层：<strong>感知识别层、网络构建层、管理服务层和综合应用层。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/29d742d5beb04a60adf4c8341d95b88d.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>科技界普遍认为，<strong>信息技术</strong>由四大部分组成，即<strong>信息获取、信息传输、信息处理与信息应用或信息利用</strong>，这四部分实际上组成了如图的一个完整信息链。<strong>检测技术</strong>的重点是在信息的获得，<strong>通信技术</strong>的重点是在信息的传输，<strong>计算机技术</strong>的重点是在信息的处理，<strong>自动化技术</strong>的重点则在信息的应用。</p>
+<p><strong>以传感器网络为核心的参考体系架构</strong>–该架构分为三层<br><img src="https://img-blog.csdnimg.cn/846b992677d04f0b931f58ad8ce504e6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>！！！感觉这个概念会结合实验考！！！</p>
+<p>从物联网的<strong>逻辑结构</strong>看，物联网分为<strong>传感层、网络层和应用层</strong>三个部分。而从物联网的<strong>物理架构</strong>看，一个物联网系统往往包括<strong>物联网感知识别设备</strong>、<strong>物联网网关</strong>、<strong>物联网云平台</strong>和<strong>用户端</strong>四个部分。</p>
+<h4 id="物联网的应用场景"><a href="#物联网的应用场景" class="headerlink" title="物联网的应用场景"></a>物联网的应用场景</h4><p>智能家居，智能医疗，智能城市，智能环保，智能交通，智能工业，智能农业 ，智能物流， 智能社区，智能会展 </p>
+<h3 id="第二章-自动识别技术"><a href="#第二章-自动识别技术" class="headerlink" title="第二章:自动识别技术"></a>第二章:自动识别技术</h3><p><strong>个人感觉这章最重要的就是条码和RFID把这两块好好看看</strong></p>
+<p><strong>自动识别技术</strong>是应用一定的识别装置，识读装置自动地获取被识别物品的相关信息，并提供给后台的计算机处理系统来完成相关后续处理的一种技术。</p>
+<h4 id="自动识别技术的种类："><a href="#自动识别技术的种类：" class="headerlink" title="自动识别技术的种类："></a>自动识别技术的种类：</h4><p>自动识别技术包含条形码技术，射频识别，机器视觉识别和生物识别技术。</p>
+<h4 id="条形码技术：最早的也是最出名最成功的自动识别技术。"><a href="#条形码技术：最早的也是最出名最成功的自动识别技术。" class="headerlink" title="条形码技术：最早的也是最出名最成功的自动识别技术。"></a>条形码技术：最早的也是最出名最成功的自动识别技术。</h4><p><strong>条形码</strong>(Bar Code）是由一组按一定编码规则排列的条、空符号组成的编码符号，用以表示一定的字符、数字及符号组成的信息。</p>
+<h5 id="条形码的分类："><a href="#条形码的分类：" class="headerlink" title="条形码的分类："></a>条形码的分类：</h5><p><strong>按维数条形码可分为一维条形码、二维条形码、多维条形码等</strong></p>
+<p>•<strong>一维条形码</strong>只是在一个方向（一般是水平方向）表达信息，而在垂直方向则不表达任何信息；</p>
+<p>•<strong>一维条形码</strong>的应用可以提高信息录入的速度，减少差错率；</p>
+<p>•<strong>一维条形码</strong>存在数据容量较小（30个字符左右）、只能包含字母和数字、条形码尺寸相对较大（空间利用率较低）、条形码遭到损坏后便不能阅读等。</p>
+<p>•<strong>二维条形码</strong>在平面的横向和纵向上都能表示信息，与一位条形码比较，二维码所携带的信息量和信息密度都提高了几倍；</p>
+<p>•<strong>二维条形码</strong>可表示图像、文字、甚至声音。</p>
+<p><strong>二维码（</strong>Bar-code）是用某种特定的几何图形按一定规律在平面（二维方向）分布的黑白相间的图形记录数据符号信息的，具有一定的校验功能，同时还具有对不同行的信息自动识别功能、及处理图形旋转变化等特点。</p>
+<h5 id="二维码分类"><a href="#二维码分类" class="headerlink" title="二维码分类"></a>二维码分类</h5><p>1.<strong>线性堆叠式二维码</strong>：是在一维条形码编码原理的基础上，将多个一维码在纵向堆叠而产生的。</p>
+<p>2.<strong>矩阵式二维码</strong>：是在一个矩形空间通过黑、白像素在矩阵中的不同分布进行编码。</p>
+<p>3.<strong>邮政码</strong>：通过不同长度的条进行编码，主要用于邮件编码。</p>
+<h4 id="射频识别：即RFID技术，也称电子标签、无线射频识别"><a href="#射频识别：即RFID技术，也称电子标签、无线射频识别" class="headerlink" title="射频识别：即RFID技术，也称电子标签、无线射频识别"></a>射频识别：即RFID技术，也称电子标签、无线射频识别</h4><p><strong>RFID</strong> 是一项易于操控、简单实用且特别适合用于自动化控制的灵活性应用技术。它既可支持只读工作模式，也可支持读写工作模式，且无须接触或瞄准；可自由工作在各种恶劣环境下；可进行高度的数据集成。</p>
+<h5 id="对比条形码技术"><a href="#对比条形码技术" class="headerlink" title="对比条形码技术"></a>对比条形码技术</h5><p><strong>和传统条形码识别技术相比，RFID <strong>有以下</strong>优势</strong>：</p>
+<p>1.<strong>快速扫描</strong>，2.<strong>体积小、形状多样化</strong>，3.<strong>抗污染能力和耐久性</strong>，4.<strong>可重复使用</strong>，5.<strong>穿透性和无屏障阅读</strong> ，6.<strong>数据记忆容量大</strong>，7.<strong>安全性</strong></p>
+<h5 id="射频识别系统的组成"><a href="#射频识别系统的组成" class="headerlink" title="射频识别系统的组成"></a>射频识别系统的组成</h5><p>如下图所示，射频识别系统包括有<strong>电子标签</strong>，<strong>阅读器（读写器）</strong>，<strong>天线</strong>三个部分</p>
+<p>–<strong>电子标签（</strong>Tag、射频标签、应答器）：由芯片及内置天线组成</p>
+<p>–<strong>阅读器（读写器）：</strong>读取或读/写电子标签信息的设备</p>
+<p>–<strong>天线</strong> <strong>：</strong>标签与阅读器之间传输数据的发射、接收装置</p>
+<p><img src="https://img-blog.csdnimg.cn/8c26e4060ce140e88068ab07e7b95220.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h5 id="射频识别系统的主要技术"><a href="#射频识别系统的主要技术" class="headerlink" title="射频识别系统的主要技术"></a>射频识别系统的主要技术</h5><p>  <strong>RFID</strong> <strong>技术</strong>研究主要集中在<strong>工作频率选择</strong>、<strong>天线设计</strong>、<strong>防冲突技术</strong>和<strong>安全与隐私保护</strong>等方面。</p>
+<p><strong>1.工作频率选择问题</strong></p>
+<p>  <strong>低频频段：</strong>能量相对较低，数据传输率较小，无线覆盖范围受限。<strong>优点</strong>天线的方向性不强，具有相对较强的<strong>绕开障碍物能力</strong>。</p>
+<p>  <strong>高频频段：</strong>能量相对较高，适于长距离应用。<strong>缺点</strong>是<strong>容易被障碍物所阻挡</strong>，易受反射和人体扰动等因素影响，<strong>不易实现无线作用范围的全区域覆盖</strong>。</p>
+<p><strong>高频频段数据传输率相对较高，且通信质量较好。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/70827566ae2045a1b4f89db32179b158.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>2.防冲突技术–ALOHA算法</strong></p>
+<p><strong>ALOHA 算法</strong>是一种随机接入方法，当任意一个<strong>标签</strong>接收到<strong>阅读器广播</strong>的识别命令之后，立即以定长信息包形式向<strong>阅读器</strong>发送其表示符号，在标签<strong>发送数据的过程中</strong>，若有<strong>其他标签</strong>也在发送标识符，则它们之间的信号发送叠加导致冲突或部分冲突。阅读器接受到信号之后，检测是否有冲突发生。如没有冲突发生，阅读器正确识别标签标识符并发送确认消息；<strong>如果发生冲突</strong>，阅读器就发送冲突确认，标签接收到冲突确认之后随机独立地等待一段时间后再重新发送以避免冲突，直到发送成功为止。</p>
+<p><strong>3.安全与隐私</strong></p>
+<p>  RFID安全问题集中在对个人用户的隐私保护、对企业用户的商业秘密保护、防范对RFID系统的攻击以及利用RFID 技术进行安全防范等多个方面。</p>
+<p>1.<strong>保证用户对标签的拥有信息不被未经授权访问</strong>，以保护用户在消费习惯、个人行踪等方面的隐私。</p>
+<p>2.<strong>避免</strong>由于RFID 系统读取速度快，而<strong>被利用来窃取用户商业机密。</strong></p>
+<p>3.<strong>防护对</strong>RFID <strong>系统的各类攻击。</strong>如：重写标签以窜改物品信息；使用特制设备伪造标签应答欺骗读写器以制造物品存在的假相；根据RFID 前后向信道的不对称性远距离窃听标签信息；通过干扰RFID 工作频率实施拒绝服务攻击；通过发射特定电磁波破坏标签等。</p>
+<p>4.<strong>把</strong>RFID <strong>的唯一标识特性用于门禁安防、支票防伪、产品防伪</strong>等。</p>
+<h4 id="机器视觉识别：用机器代替人眼来进行测量和判断。"><a href="#机器视觉识别：用机器代替人眼来进行测量和判断。" class="headerlink" title="机器视觉识别：用机器代替人眼来进行测量和判断。"></a>机器视觉识别：用机器代替人眼来进行测量和判断。</h4><h4 id="生物识别技术：利用可以测量的人体生物学或行为学特征来核实个人身份。"><a href="#生物识别技术：利用可以测量的人体生物学或行为学特征来核实个人身份。" class="headerlink" title="生物识别技术：利用可以测量的人体生物学或行为学特征来核实个人身份。"></a>生物识别技术：利用可以测量的人体生物学或行为学特征来核实个人身份。</h4><p>每个人都有自身固有的生物特征，人体生物特征具有“人人不同，终身不变，随身携带”的特点。由于人体特征具有人体所固有的不可复制的唯一性，这一生物<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/934.htm">密钥</a>无法复制，失窃或被遗忘，生物识别技术就是利用生物特征或行为特征对个人进行身份识别，利用生物识别技术进行身份认定，安全、可靠、准确。</p>
+<p><strong>生物识别技术</strong>主要包括：<strong>手形识别</strong>，<strong>面相识别技术</strong>，<strong>签名识别</strong>，<strong>虹膜识别技术</strong>，<strong>声音识别技术</strong>，<strong>掌纹识别技术</strong>，<strong>真皮层特征识别</strong>，<strong>静脉特征识别</strong>，<strong>指纹识别</strong>，<strong>声纹识别等等</strong></p>
+<p><strong>指纹识别</strong>指纹识别即指通过比较不同指纹的细节特征点来进行鉴别。由于每个人的指纹不同，就是同一个人的十指之间，指纹也有明显区别，因此指纹可用于身份鉴定。</p>
+<h3 id="第三章-传感器与传感网"><a href="#第三章-传感器与传感网" class="headerlink" title="第三章:传感器与传感网"></a>第三章:传感器与传感网</h3><p>传感器（Sensor；Measuring Element；Transducer）是一种检测装置，能感受到被测量的信息，并能将检测感受到的信息，按一定规律变换成为电信号或其他所需形式的信息输出，以满足信息的传输、处理、存储、显示、记录和控制等要求。它是实现自动检测和自动控制的首要环节，也是物联网获取物理世界信息的基本手段。国家标准 GB7665-87 对传感器下的定义是：“能感受规定的被测量并按照一定的规律转换成可用信号的器件或装置，通常由敏感元件和转换元件组成”。</p>
+<h4 id="传感器分类"><a href="#传感器分类" class="headerlink" title="传感器分类"></a>传感器分类</h4><p>按传感器的<strong>物理量分类</strong>，可分为位移、力、速度、温度、流量、气体成份等传感器。</p>
+<p>按传感器<strong>工作原理分类</strong>，可分为电阻、电容、电感、电压、霍尔、光电、光栅热电偶等传感器。</p>
+<p>按传感器输<strong>出信号的性质分类</strong>，可分为：输出为开关量（“１” 和“０”或“开”和“关”）的开关型传感器；输出为模拟量的模拟型传感器；输出为脉冲或代码的数字型传感器。</p>
+<p><img src="https://img-blog.csdnimg.cn/23fcde6c4f834c4f9acc80464ebd1cd7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h4 id="无线传感网"><a href="#无线传感网" class="headerlink" title="无线传感网"></a>无线传感网</h4><p><strong>无线传感器网络</strong>（Wireless Sensor Network，WSN）由部署在监测区域内的传感器节点组成，这些节点数量很大、体积微小，通过<strong>无线通信</strong>方式形成一个<strong>多跳的自组织网络</strong>。 </p>
+<p>无线传感网是物联网的基本组成部分，可以将客观物理世界与信息世界融合在一起，能够改变人与自然界的交互方式，极大地扩展现有网络的功能和人类认识世界的能力</p>
+<h4 id="传感器和传感网络节点的区别"><a href="#传感器和传感网络节点的区别" class="headerlink" title="传感器和传感网络节点的区别"></a>传感器和传感网络节点的区别</h4><p>一个传感器和一个传感网络节点的<strong>区别在于是否植入了一个通信模块</strong>。<strong>传感器节点</strong>是无线传感器网络的基本功能单元。传感器节点可采用自组织方式进行组网，利用无线（有线）通信技术进行数据转发的，节点都具有数据采集与数据融合转发双重功能。</p>
+<h3 id="第四章-近距离无线通信技术"><a href="#第四章-近距离无线通信技术" class="headerlink" title="第四章:近距离无线通信技术"></a>第四章:近距离无线通信技术</h3><p><strong>无线通信（Wireless Communication）</strong>是利用电磁波信号可以在空间传播的特性进行信息交换的一种通信方式。无线通信包括<strong>固定体之间的无线通信</strong>和<strong>移动通信</strong>两大部分。由于人类社会活动具有的显著的移动性，因而<strong>移动通信</strong>在无线通信中占主导地位。<strong>移动通信</strong>就是移动体之间的通信，或移动体与固定体之间的通信。</p>
+<p><strong>近距离无线通信技术：</strong>范围很广，在一般意义上，只要通信收发双方通过无线电波传输信息，并且传输距离限制在较短的范围内，通常是几十米以内，就可以称为近（短）距离无线通信。</p>
+<h4 id="常用的近距离无线通信技术"><a href="#常用的近距离无线通信技术" class="headerlink" title="常用的近距离无线通信技术"></a>常用的近距离无线通信技术</h4><table>
+<thead>
+<tr>
+<th>蓝牙</th>
+<th>Wibree</th>
+<th>Wi-Fi</th>
+<th>WiGig(60GHz)</th>
+<th>IrDA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ZigBee</td>
+<td>NFC</td>
+<td>UWB</td>
+<td>Z-Wave</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="蓝牙介绍"><a href="#蓝牙介绍" class="headerlink" title="蓝牙介绍"></a>蓝牙介绍</h4><p><strong>蓝牙</strong>：蓝牙（Bluetooth）是一种无线数据与语音通信的开放性全球规范，它以低成本的短距离无线连接为基础，可为固定的或移动的终端设备(如掌上电脑、笔记本电脑和手机等)提供廉价的接入服务。由于<strong>蓝牙体积小、功率低</strong>，其应用已不局限于计算机外设，几乎<strong>可以被集成到任何数字设备之中</strong>，<strong>特别是</strong>那些<strong>对数据传输速率要求不高的移动设备和便携设备</strong>。</p>
+<p><strong>蓝牙特点：</strong></p>
+<p>1.全球范围适用，2.可同时传输语音和数据，3.可以建立临时性的对等连接（Ad-hoc Connection)，4.具有很好的抗干扰能力，5.蓝牙模块体积很小、便于集成，6.低功耗，7.开放的接口标准，8.成本低</p>
+<p><strong>蓝牙无线技术的应用大体上可以划分为</strong></p>
+<p><strong>1.替代线缆（Cable Replacement）</strong></p>
+<p>与其他短距离无线技术不同，蓝牙从一开始就定位于结合语音和数据应用的基本传输技术。最简单的一种应用就是点对点（Point to Point）的替代线缆，例如耳机和移动电话、笔记本电脑和移动电话、PC和PDA（数据同步）、数码相机和PDA以及蓝牙电子笔和移动电话之间的无线连接。 围绕替代线缆再复杂一点的应用，就是多个设备或外设在一个简单的“个人局域网”（PAN）内建立通信连接，如在台式计算机、鼠标、键盘、打印机、ＰＤＡ和移动电话之间建立无线连接。为了支持这种应用，蓝牙还定义了“微网”（Piconet）的概念，同一个ＰＡＮ内至多有8个数据设备（1个“主设备”（Master）和7个“从设备”（Slave））共存。 </p>
+<p><strong>2.因特网桥（Internet Bridge）</strong></p>
+<p>蓝牙标准还更进一步地定义了“网络接入点”（Network Access Point）的概念，它允许一台设备通过此网络接入点来访问网络资源，如访问LAN、Intranet、Internet和基于ＬＡＮ的文件服务和打印设备。 </p>
+<p><strong>3.临时组网（Ad Hoc Network）</strong></p>
+<p>蓝牙标准还定义了基于无网络基础设施（Infrastructure-less Network）的“散型网”（Scatternet）的概念，意在建立完全对等（P2P）的Ad Hoc Network。所谓的Ad Hoc Network是一个临时组建的网络，其中没有固定的路由设备，网络中所有的节点都可以自由移动，并以任意方式动态连接（随时都有节点加入或离开），网络中的一些节点客串路由器来发现和维持与网络其他节点间的路由。</p>
+<p><strong>蓝牙技术规定两个设备进行蓝牙通信时，必须将设备分为“主端”和“从端”才可以。且可以在两个角色间切换。主端模式向其它设备发起连接请求。蓝牙客户端用来发起通信链接请求，而蓝牙服务端负责接受通信连接请求。</strong></p>
+<h4 id="NFC介绍"><a href="#NFC介绍" class="headerlink" title="NFC介绍"></a>NFC介绍</h4><p><strong>NFC</strong>英文全称<strong>Near Field Communication</strong>，即近场通信技术。NFC是脱胎于无线设备间的一种“非接触式射频识别”(RFID)及互联技术，为所有消费性电子产品提供了一个极为便利的通讯方式。NFC在数厘米（通常是15cm以内）距离之间于13.56MHz频率范围内运作，通过射频信号自动识别目标对象并获取相关数据，识别工作无须人工干预，任意两个设备（如移动电话）接近而不需要线缆接插，就可以实现相互间的通信，满足任何两个无线设备间的信息交换、内容访问、服务交换。</p>
+<p> <strong>NFC工作原理</strong></p>
+<p>NFC存在两种工作模式：<strong>主动模式</strong>和<strong>被动模式。</strong>在<strong>主动模式</strong>下，每台设备要向另一台设备发送数据时，都必须产生自己的射频场。发起设备和目标设备都要产生自己的射频场，以便进行通信。这是对等网络通信的标准模式，可以获得非常快速的连接设置。在<strong>被动模式</strong>下，启动NFC通信的设备，也称为NFC发起设备（主设备），在整个通信过程中提供射频场（RF field）。</p>
+<h3 id="第五章-云计算与大数据技术基础"><a href="#第五章-云计算与大数据技术基础" class="headerlink" title="第五章:云计算与大数据技术基础"></a>第五章:云计算与大数据技术基础</h3><p>云计算与物联网、大数据有重要的关联性，作为未来的人机物计算的重要组成部分，云计算关注的是基础设施和服务器端，大数据是内容，物联网关注的客户和终端技术</p>
+<h4 id="什么是云计算？"><a href="#什么是云计算？" class="headerlink" title="什么是云计算？"></a>什么是云计算？</h4><p><strong>云计算是通过集中式远程计算资源池，以按需分配方式，为终端用户提供强大而廉价的计算服务能力</strong></p>
+<h4 id="云计算解决什么实际问题？"><a href="#云计算解决什么实际问题？" class="headerlink" title="云计算解决什么实际问题？"></a>云计算解决什么实际问题？</h4><p>用一个集中管理的巨大的计算资源池，提供巨大的计算资源和能力<strong>1.为小粒度应用提供资源共享；2.为大粒度应用提供大规模计算能力</strong></p>
+<h4 id="云计算的主要特点"><a href="#云计算的主要特点" class="headerlink" title="云计算的主要特点"></a>云计算的主要特点</h4><p>透明的云端计算服务；“<strong>无限”多</strong>的计算资源，提供强大的计算能力；<strong>按需分配，弹性伸缩，取用方便，成本低廉</strong>；资源共享，降低企业IT基础设施建设维护费用；应用部署快速而容易；软件/应用功能更新方便快捷；节省能源，绿色环保；集计算技术之大成，具有很强的技术性、工程型特点。</p>
+<p><strong>按云计算服务层面进行分类</strong></p>
+<p><strong>SaaS</strong>：Software as a Service；提供各种应用软件服务</p>
+<p><strong>PaaS</strong>：Platform as a Service；提供软件支撑平台服务</p>
+<p><strong>IaaS</strong>：Infrastructure as a Service；提供接近于裸机(物理机或虚拟机)的计算资源和基础设施服务</p>
+<p><strong>例如咱们学习的邮箱就是Saas的一种形式</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/d8a8ce891a8842b9b46bbbc7738fcf08.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h4 id="云计算发展趋势"><a href="#云计算发展趋势" class="headerlink" title="云计算发展趋势"></a>云计算发展趋势</h4><p><strong>云计算将提供一种新的计算模式和服务模式</strong>。云计算将是计算技术的一次重大变革，作为今后计算发展的潮流将大大改变现有的计算模式，对计算技术领域本身以及各个应用行业都将带来重大的影响，提供更多的发展机遇。<strong>通过云计算人们能获得前所未有的强大计算能力，并能按需分配，按需付费</strong>，提升了本地计算能力但使用成本低廉，而且还能大幅削减不断升级软硬件系统的费用。<strong>通过云计算平台强大的计算和存储能力，人们将能完成传统系统所无法完成的计算和处理</strong>，开发出更强大的应用功能，提供更多智能化应用  。<strong>云计算与物联网、大数据有重要的关联性</strong>，作为未来的人机物计算的重要组成部分，云计算关注的是基础设施和服务器端，大数据是内容，物联网关注的客户和终端技术，通过各种个人终端使用云端的计算能力，将大大扩展现有的移动设备的计算能力，提供各种新的增值应用模式</p>
+<h4 id="什么是“大数据”？"><a href="#什么是“大数据”？" class="headerlink" title="什么是“大数据”？"></a>什么是“大数据”？</h4><p> 大数据意指一个超大的、难以用现有常规的数据库管理技术和工具处理的数据集</p>
+<p><strong>数据科学</strong>  <strong>实验科学-&gt;理论科学 -&gt;计算科学 -&gt;数据科学</strong></p>
+<p><strong>大数据特点:</strong> 5V</p>
+<p>  <strong>Volume: 大容量, Variety: 多样性,Velocity: 时效性,Veracity: 准确性, Value: 大价值</strong></p>
+<h4 id="大数据处理的两大技术挑战"><a href="#大数据处理的两大技术挑战" class="headerlink" title="大数据处理的两大技术挑战"></a>大数据处理的两大技术挑战</h4><p><strong>如何存？数据存储问题</strong>–数据规模导致难以应对的存储量</p>
+<p><strong>解决方法：分布存储</strong></p>
+<p><strong>如何算？计算性能问题</strong>–数据规模导致传统算法失效–复杂的数据关联性导致高复杂度的计算</p>
+<p><strong>解决方法：并行计算</strong></p>
+<p><strong>大数据研究的基本途径</strong></p>
+<p><strong>三个基本途径</strong>：1.寻找新算法降低计算复杂度2.降低大数据尺度，寻找数据尺度无关算法3.大数据并行化处理</p>
+<h3 id="第六章-定位系统"><a href="#第六章-定位系统" class="headerlink" title="第六章:定位系统"></a>第六章:定位系统</h3><p>在物联网中，定位就是确定物体的方位。定位按照使用场景不同，可以划分为<strong>室外定位</strong>和<strong>室内定位</strong>两大类。</p>
+<h4 id="室外定位技术"><a href="#室外定位技术" class="headerlink" title="室外定位技术"></a>室外定位技术</h4><p><strong>室外定位</strong>主要是<strong>卫星定位</strong>和<strong>基站定位</strong>。卫星定位即采用全球卫星导航系统（Global Navigation Satellite System, GNSS）实现定位，但由于建筑物遮挡卫星信号，卫星定位在室内无法实现。</p>
+<p><strong>位置信息三要素</strong>：所在的地理位置，处在该地理位置的时间，处在该地理位置的对象（人或设备）</p>
+<p><strong>现有定位系统</strong>：现阶段，世界上主要有四种卫星导航定位系统，分别为美国的全球卫星定位系统（GPS系统），俄罗斯的全球导航卫星系统（GLONASS系统），中国的北斗卫星定位系统，以及欧洲的伽利略系统（GALILEO系统）。</p>
+<p>GPS可以提供的信息：（１）地球表面的位置（２）所处位置的高度（３）航行的速度及方向（４）时间</p>
+<p>GPS定位原理：1.GPS的定位原理是通过四颗已知位置的卫星来确定GPS接收器的位置。2.三维坐标（经度、纬度、高度），至少需要4颗GPS卫星。3.求解４个未知量，经度、维度、高度和接收机时钟误差。</p>
+<p><strong>GPS三个主要部分</strong></p>
+<p><strong>空间部分</strong>：由24 颗工作卫星组成，它们均匀分布在6 个轨道面上（每个轨道面4 颗），卫星的分布使得在全球任何地方、任何时间都可观测到4 颗以上的卫星，并能保持良好定位解算精度的几何图象；</p>
+<p><strong>控制部分</strong>：主要由监测站、主控站、备用主控站、信息注入站构成，主要负责GPS卫星阵的管理控制；</p>
+<p><strong>用户设备部分</strong>：主要是GPS接收机，主要功能是接收GPS卫星发射的信号，获得定位信息和观测量，经数据处理实现定位。</p>
+<p><img src="https://img-blog.csdnimg.cn/e9f99511ebe348ffa44c934060730950.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_18,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>A-GPS技术</strong>：A-GPS（Assisted GPS）即辅助GPS技术，它可以提高 GPS 卫星定位系统的性能。通过移动通信运营基站它可以快速地定位，广泛用于含有GPS功能的手机上。GPS通过卫星发出的无线电信号来进行定位。当在很差的信号条件下，例如在一座城市，这些信号可能会被许多不规则的建筑物、墙壁或树木削弱。在这样的条件下，非A-GPS 导航设备可能无法快速定位，而A-GPS 系统可以通过运营商基站信息来进行快速定位。</p>
+<p><strong>蜂窝基站定位</strong>：蜂窝通信，是一种小区制移动通信，在每个小区设立一个基站（Base Station），用户手机与基站通过无线链路建立连接，从而实现双向通信。</p>
+<p>（1）小区制将整个区域划分成若干个小区，多个小区组成一个区群。由于区群结构酷似蜂窝，因此小区制移动通信系统也叫蜂窝移动通信系统。</p>
+<p>（2）小区内的基站架设一个或几个，手机与基站建立无线链路。</p>
+<p>（3）区群中各小区基站之间通过光缆、电缆或微波链路与移动交换中心连接。</p>
+<p><strong>移动设备在GSM网络通信原理</strong></p>
+<p>用移动设备在GSM网络中通信，实际上就是通过某一个蜂窝基站接入GSM网络，然后通过GSM网络进行数据（语音数据、文本数据、多媒体数据等）传输的。也就是说我们在GSM中通信时，总是需要和某一个蜂窝基站连接的，或者说是处于某一个蜂窝小区中的。那么GSM定位，就是借助这些蜂窝基站进行定位。</p>
+<p><strong>COO（Cell of Origin）定位</strong></p>
+<p>COO定位是一种<strong>单基站定位</strong>，即根据设备当前连接的蜂窝基站的位置来确定设备的位置。那么很显然，定位的精度就取决于蜂窝小区的半径。在基站密集的城市中心地区，通常会采用多层小区，小区划分的很小，这时定位精度可以达到50M以内；而在其他地区，可能基站分布相对分散，小区半径较大，可能达到几千米，也就意味着定位精度只能粗略到几千米。目前Google地图移动版中，通过蜂窝基站确定“我的位置”，基本上用的就是这种方法。</p>
+<p><strong>TOA/TDOA定位</strong></p>
+<p>TOA(Time of Arrival，到达时间)、TDOA(Time Difference of Arrival,到达时间差)都是基于电波传播时间的定位方法。同时也都是三基站定位方法，二者的定位都需要同时有三个位置已知的基站合作才能进行。</p>
+<p>TOA/DTOA定位方法都是通过三对[Positioni,Ti]（i=1,2,3）来确定设备的位置Location。二者的不同只是GetLocation（）函数的具体算法上的不同。TOA电波到达时间定位基本原理是得到Ti(i=1,2,3)后，由Ti<em>c得到设备到基站i之间的距离Ri，然后根据几何只是建立方程组并求解，从而求得Location值。因此TOA算法对<strong>系统的时间同步要求很高</strong>，任何<strong>很小的时间误差</strong>都会被放大很多倍，同时由于<strong>多径效应</strong>的影响又会带来<strong>很大的误差</strong>，因而单纯的TOA在实际中应用很少。<strong>DTOA电波到达时间差定位</strong>是对TOA定位的<strong>改</strong>进，与TOA的不同之处在于，得到Ti后不是立即用Ti去求距离Ri，而是先对T1,T2,T3两两求差，然后通过一些巧妙的数学算法建立方程组并求解，从而得到Location值。DTOA由于其中巧妙设计的求差过程会<strong>抵消</strong>其中<strong>很大一部分的时间误差和多径效应带来的误差</strong>，因而可以*<em>大大提高定位的精确度。</em></em></p>
+<p><img src="https://img-blog.csdnimg.cn/9a2e692ae8dc4b299648812c226cad71.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_15,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>AOA定位</strong></p>
+<p>AOA(Angle of Arrival，到达角度)定位是一种两基站定位方法，基于信号的入射角度进行定位。</p>
+<h4 id="室内定位技术"><a href="#室内定位技术" class="headerlink" title="室内定位技术"></a>室内定位技术</h4><p>室内定位即通过技术手段获知人们在室内所处的实时位置或者行动轨迹。基于这些信息能够实现多种应用。</p>
+<p><img src="https://img-blog.csdnimg.cn/9b869a4c1fd54ab8b7d928c7934aec4a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><del>这里我感觉就算原理不明白这些方法名字也得记住</del></p>
+<p>从原理上主要分为七种：<strong>邻近探测法、质心定位法、多边定位法、三角定位法、极点法、指纹定位法和航位推算法</strong>。不同的室内定位方法选择不同的观测量，通过不同的观测量提取算法所需要的信息。</p>
+<p><strong>1.临近探测法</strong></p>
+<p><strong>临近探测法</strong>，通过一些有范围限制的物理信号的接收，从而判断移动设备是否出现在某一个发射点附近。该方法虽然只能提供大概的定位信息，但其布设成本低、易于搭建，适合于一些对定位精度要求不高的应用，例如自动识别系统用于公司的员工签到。</p>
+<p><strong>2.质心定位法</strong></p>
+<p><strong>质心定位法</strong>，根据移动设备可接收信号范围内所有已知的信标（beacon）位置，计算其质心坐标作为移动设备的坐标。该方法易于理解，计算量小，定位精度取决于信标的布设密度。</p>
+<p><strong>3.多边定位法</strong></p>
+<p><strong>多边定位法</strong>，通过测量待测目标到已知参考点之间的距离，从而确定待测目标的位置。<strong>优点：</strong>精度高、应用广。</p>
+<p><strong>4.三角定位法</strong></p>
+<p><strong>三角定位法</strong>，该方法是在获取待测目标相对２个已知参考点的角度后结合两参考点间的距离信息可以确定唯一的三角形，即可确定待测目标的位置。<strong>优点</strong>：精度高、应用广。</p>
+<p><strong>5.极点法</strong></p>
+<p><strong>极点法</strong>，通过测量相对某一已知参考点的距离和角度从而确定待测点的位置。该方法仅需已知一个参考点的位置坐标，因此使用非常方便，已经在大地测量中得到广泛应用。</p>
+<p><strong>6.指纹定位法</strong></p>
+<p><strong>指纹定位法</strong>，在定位空间中建立指纹数据库，通过将实际信息与数据库中的参数进行对比来实现定位。指纹定位的优势是几乎不需要参考测量点，定位精度相对较高；但缺点是前期离线建立指纹库的工作量巨大，同时很难自适应于环境变化较大的场景。</p>
+<p><strong>7.航位推算法</strong></p>
+<p><strong>航位推算法</strong>，是在已知上一位置的基础上，通过计算或已知的运动速度和时间计算得到当前的位置。数据稳定，无依赖，但该方法存在累积误差，定位精度随着时间增加而恶化。</p>
+<h5 id="室内定位的观测量"><a href="#室内定位的观测量" class="headerlink" title="室内定位的观测量"></a>室内定位的观测量</h5><p>不同的室内定位方法选择不同的观测量，通过不同的观测量提取算法所需要的信息。</p>
+<p><strong>RSSI测量</strong>:它是通过计算信号的传播损耗，可以使用理论或者经验模型来将传播损耗转化为距离，也可以用于指纹定位建立指纹库。</p>
+<p><strong>TOA测量</strong>:该方法主要测量信号在基站和移动台之间的单程传播时间或来回传播时间。前者要求基站与移动台间的时钟同步。</p>
+<p><strong>TDOA测量</strong>:该方法同样是测量信号到达时间，但使用到达时间差进行定位计算，可利用双曲线交点确定移动台位置，故可以避免对基站和移动台的精确同步。</p>
+<p><strong>AOA测量</strong> :该方法是指接收机通过天线阵列测出电磁波的入射角度，包括测量基站信号到移动台的角度或者移动台信号到达基站的角度。每种方式均会产生从基站到移动台的方向线。2个基站可以得到2条方向线，其交点即为移动台位置。因此，AOA方法只需要2个基站即可确定移动台位置。</p>
+<p><strong>方向和距离</strong>:获取方向和距离多用于航位推算定位，采用自包含传感器记录载体的物理信息，计算得到方向和距离，从而在已知上一位置的基础上计算得到当前的位置。</p>
+<p><strong>当前主流室内定位方法</strong>：WiFi定位技术、FRID定位技术、红外定位技术、超声波定位技术、蓝牙定位技术、惯性导航技术、超宽带(UWB)定位技术、LED可见光定位技术、地磁定位技术、视觉定位。</p>
+<p><img src="https://img-blog.csdnimg.cn/364b32393ee04e998d92835cdc61c8f1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h3 id="第七章-智能信息设备"><a href="#第七章-智能信息设备" class="headerlink" title="第七章:智能信息设备"></a>第七章:智能信息设备</h3><p> <strong>手持移动设备</strong></p>
+<p><strong>终端</strong>（Computer terminal），是一台电子计算机或者计算机系统，用来让用户输入数据，及显示其计算结果的机器。终端有些是全电子的，也有些是机电的。其又名终端机，它与一部独立的电脑不同。终端其实就是一种输入输出设备，相对于计算机主机而言属于外设，本身并不提供运算处理功能。<strong>而智能终端设备是指那些具有多媒体功能的智能设备这些设备支持音频、视频、数据等方面的功能</strong>如：可视电话、会议终端、内置多媒体功能的PC<strong>、PDA等。这些终端之所以被称为“智能”是因为该终端内置处理器，它们能够理解转义序列，可以定位光标和控制显示位置。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/e4807e5eb828427d9b8bd2d0fc5ca128.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAS3JlYWxIdHowLjA=,size_17,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>华为HMS是Huawei Mobile Service的缩写，翻译过来就是“华为移动服务”。</strong></p>
+<p>鸿蒙OS实现模块化耦合，对应不同设备可<strong>弹性部署</strong>，鸿蒙OS有三层架构，第一层是内核，第二层是基础服务，第三层是程序框架 。可用于大屏、PC、汽车等各种不同的设备上。还可以随时用在手机上，但暂时华为手机端依然优先使用安卓。若安卓应用重新编译，在华为鸿蒙OS操作系统上，运行性能提升超过60%。 华为鸿蒙率先应用在智能手表、智慧屏、车载设备、智能音箱等智能终端上，着力构建一个跨终端的融合共享生态，重塑安全可靠的运行环境。</p>
+<p>HarmonyOS 是“第一个适用于所有场景的基于微内核的分布式操作系统”，它可以运行在智能手机、智能扬声器、计算机、智能手表、无线耳塞、汽车与平板电脑上，其支持的 RAM 大小从千字节到千兆字节不HarmonyOS系统最终将支持一系列应用，兼容 Linux 与 Android 应用，同时该系统应用程序开发中使用的方舟编译器（ArkCompiler）也将支持 Kotlin、Java、JavaScript、C 与 C++。</p>
+<p><strong>内核是所有计算机的核心，是控制一切的基本程序。这里的“微”指的是非常小规模的东西。作为微内核，Fuchsia 可以在任何设备上运行，包括传统的电脑、手机和物联网设备（如冰箱或微波炉）。</strong></p>
+<h3 id="第八章-物联网应用层通信协议"><a href="#第八章-物联网应用层通信协议" class="headerlink" title="第八章:物联网应用层通信协议"></a>第八章:物联网应用层通信协议</h3><h4 id="关长连接和短连接的区别"><a href="#关长连接和短连接的区别" class="headerlink" title="关长连接和短连接的区别"></a>关长连接和短连接的区别</h4><p><strong>长连接</strong>，和服务器的通信始终保持，就像打电话中的始终占线。服务端能保持的通信数量有限，达到通信数量的限制时就要增加服务器。一般用Socket或WebSocket开发长链接，在手游和聊天推送服务中有较多的应用。</p>
+<p><strong>短连接</strong>，和服务端的通信在需要时才连接，是主流的通信方式，开发效率高。比如HTTP协议。</p>
+<h4 id="并发连接访问中的C10K问题"><a href="#并发连接访问中的C10K问题" class="headerlink" title="并发连接访问中的C10K问题"></a>并发连接访问中的C10K问题</h4><p>当并发连接超过<strong>10000</strong>以上时使用<strong>传统的单机服务</strong>技术会引发<strong>宕机</strong>。比如在Web内存服务中，每个连接都会生成一个新线程，每个新线程可能需要2MB的内存，那么8G内存的主机，理论上最大的并发连接数量是4000。</p>
+<h4 id="通信数据格式"><a href="#通信数据格式" class="headerlink" title="通信数据格式"></a>通信数据格式</h4><p>通用主要有两种数据格式<strong>（1）XML（2）JSON</strong></p>
+<h4 id="物联网协议XMPP"><a href="#物联网协议XMPP" class="headerlink" title="物联网协议XMPP"></a><strong>物联网协议XMPP</strong></h4><p>XMPP（Extensible Messageing and Presence Protocol：可扩展消息与存在协议）是目前主流的四种IM（IM：instant messaging,即时消息）协议之一，其他三种分别为：即时信息和空间协议(IMPP)、空间和即时信息协议(PRIM)、针对即时通讯和空间平衡扩充的进程开始协议SIP(SIMPLE)。</p>
+<p><strong>XMPP 的消息格式</strong></p>
+<p>XMPP 协议的所有消息都是 <strong>XML 格式</strong>的。XMPP 通过 TCP 传输，它用于即时消息（IM）以及在线现场探测。XMPP允许因特网用户向因特网上的其他任何人发送即时消息，即使其操作系统和浏览器不同。</p>
+<p><strong>XMPP内容</strong></p>
+<p>XMPP定义了3个角色客户端(Client)、服务器(Server)、网关(Gateway)。通信能够在这三者的任意两个之间双向发生。</p>
+<p>  （1）服务器同时承担了客户端信息记录、连接管理和信息的路由功能 。</p>
+<p>  （2）网关承担着与异构即时通信系统的 互联互通，异构系统可以包括SMS （短信），MSN，ICQ等。</p>
+<p>  （3）客户端利用XMPP（基于TCP/IP）访 问server，传输的是XML。</p>
+<p><strong>XMPP 的交互流程如下：</strong></p>
+<p>•所有从一个 client 到另一个 client 的消息和数据都要经过 XMPP Server；</p>
+<p>•client1 连接到Server；</p>
+<p>•server 利用本地目录系统的证书对其认证；</p>
+<p>•client1 指定 client2 目标地址，让 server 告知 client2 目标状态；</p>
+<p>•server 查找，连接并进行互相认证；</p>
+<p>•client1 和 client2 进行交互。</p>
+<h4 id="物联网协议RESTful-HTTP"><a href="#物联网协议RESTful-HTTP" class="headerlink" title="物联网协议RESTful HTTP"></a>物联网协议RESTful HTTP</h4><p>REST（Representational State Transfer，表现层状态转移） 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。</p>
+<p>Web 应用程序最重要的 REST 原则是，客户端和服务器之间的交互在请求之间是无状态的。从客户端到服务器的每个请求都必须包含理解请求所必需的信息。如果服务器在请求之间的任何时间点重启，客户端不会得到通知。此外，无状态请求可以由任何可用服务器回答，这十分适合云计算之类的环境。客户端可以缓存数据以改进性能。</p>
+<p><strong>RESTful 架构特点</strong></p>
+<p>o（1）每个URI代表一种资源。</p>
+<p>o（2）客户端和服务端之间，传递这种资源的某种表现层。</p>
+<p>o（3）客户端通过四个HTTP动作指令，对服务器端资源进行操作。</p>
+<p>  GET:用来获取资源； POST:用来新建资源（也可用于更新资源）；PUT:用来更新资源； DELETE:用来删除资源。</p>
+<h4 id="HTTP原理"><a href="#HTTP原理" class="headerlink" title="HTTP原理"></a>HTTP原理</h4><p><strong>HTTP</strong>的全称是HyperText Transfer Protocol，<strong>超文本传输协议</strong>，这个协议的提出就是为了<strong>提供和接收HTML界面</strong>，通过这个协议在互联网上面传出web的界面信息。HTTP协议共有两个过程：Request和Response，两个都有各自的语言格式。<strong>HTTP协议命令</strong>主要是常用的<strong>GET和POST方法</strong>，<strong>GET就是获取什么内容，而POST就是向服务器发送什么数据</strong>。当然还有其他的，比如HTTP 1.1中还有：DELETE、PUT、CONNECT、HEAD、OPTIONS、TRACE等一共8个方法（HTTP Method历史：HTTP 0.9 只有GET方法；HTTP 1.0 有GET、POST、HEAD三个方法）。</p>
+<h4 id="传统Web的问题"><a href="#传统Web的问题" class="headerlink" title="传统Web的问题"></a>传统Web的问题</h4><p>1.系统之间缺乏良好的互操作性。2.系统内部耦合度较强，应用模式不够灵活</p>
+<h4 id="Web服务与Web服务器的区别"><a href="#Web服务与Web服务器的区别" class="headerlink" title="Web服务与Web服务器的区别"></a>Web服务与Web服务器的区别</h4><p><strong>我们可以把WebService看作是Web服务器上应用；反过来说，Web服务器是WebService运行时所必需的容器。这就是它们的区别和联系。</strong></p>
+<h4 id="Web网页与Web服务"><a href="#Web网页与Web服务" class="headerlink" title="Web网页与Web服务"></a>Web网页与Web服务</h4><p>网页是供人理解和阅读的，主要是HTML格式，包含内容和样式等。</p>
+<p>Web服务是一种基于Web的编程组件，供客户计算机程序来调用的。其结果主要采用XML和JSON等计算机能够自动理解的格式，而不是供人直接阅读。</p>
+<h4 id="物联网协议MQTT（重点）"><a href="#物联网协议MQTT（重点）" class="headerlink" title="物联网协议MQTT（重点）"></a>物联网协议MQTT（重点）</h4><p><strong>MQTT协议基于发布/订阅（Publish/Subscribe）模式</strong></p>
+<p>由于物联网的环境是非常特别的，所以MQTT遵循以下设计原则： </p>
+<p>（1）精简，不添加可有可无的功能。（2）发布/订阅（Pub/Sub）模式，方便消息在传感器之间传递。（3）允许用户动态创建主题，零运维成本。（4）把传输量降到最低以提高传输效率。（5）把低带宽、高延迟、不稳定的网络等因素考虑在内。（6）支持连续的会话控制。（7）理解客户端计算能力可能很低。（8）提供服务质量管理。（9）假设数据不可知，不强求传输数据的类型与格式，保持灵活性。</p>
+<p><strong>发布者</strong>与<strong>订阅者</strong>不比了解彼此，只要认识同一个<strong>消息代理</strong>即可。发布者和订阅者不需要交互，发布者无需等待订阅者确认而导致锁定。发布者和订阅者不需要同时在线，可以自由选择时间来消费消息<br><img src="https://img-blog.csdnimg.cn/6f6bf97999e04a22a5b9187cda2efae2.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>MQTT是通过<strong>主题</strong>对<strong>消息进行分类</strong>的，本质上就是一个UTF-8的字符串，不过可以通过反斜杠表示多个层级关系。主题并不需要创建，直接使用就是了。</p>
+<p><strong>服务质量</strong></p>
+<p>为了满足不同的场景，MQTT支持三种不同级别的服务质量（Quality of Service，QoS）为不同场景提供消息可靠性：</p>
+<p>级别0：尽力而为。消息发送者会想尽办法发送消息，但是遇到意外并不会重试。</p>
+<p>级别1：至少一次。消息接收者如果没有知会或者知会本身丢失，消息发送者会再次发送以保证消息接收者至少会收到一次，当然可能造成重复消息。</p>
+<p>级别2：恰好一次。保证这种语义肯待会减少并发或者增加延时，不过丢失或者重复消息是不可接受的时候，级别2是最合适的。</p>
+<p>服务质量是个老话题了。级别2所提供的不重不丢很多情况下是最理想的，不过往返多次的确认一定对并发和延迟带来影响。级别1提供的至少一次语义在日志处理这种场景下是完全OK的，所以像Kafka这类的系统利用这一特点减少确认从而大大提高了并发。级别0适合鸡肋数据场景，食之无味弃之可惜。</p>
+<h4 id="物联网协议CoAP"><a href="#物联网协议CoAP" class="headerlink" title="物联网协议CoAP"></a>物联网协议CoAP</h4><p>CoAP是受限制的应用协议(Constrained Application Protocol)的代名词。在最近几年的时间中，专家们预测会有更多的设备相互连接，而这些<strong>设备的数量将远超人类的数量</strong>。在这种大背景下，物联网和M2M技术应运而生。虽然对人而言，连接入互联网显得方便容易，但是对于那些微型设备而言接入互联网非常困难。在当前由PC机组成的世界，信息交换是通过TCP和应用层协议HTTP实现的。但是对于小型设备而言，实现TCP和HTTP协议显然是一个过分的要求。<strong>为了让小设备可以接入互联网</strong>，<strong>CoAP协议</strong>被设计出来。CoAP是一种应用层协议，它运行于UDP协议之上而不是像HTTP那样运行于TCP之上。CoAP协议非常的小巧，<strong>最小的数据包</strong>仅为4字节。CoAP适用于低功耗受限设备，一个内存为20KB的单片机就可以实现CoAP服务器或客户端。</p>
+<h4 id="CoAP与MQTT的区别"><a href="#CoAP与MQTT的区别" class="headerlink" title="CoAP与MQTT的区别"></a>CoAP与MQTT的区别</h4><p>MQTT和CoAP都是行之有效的物联网协议，但两者还是有很大区别的，比如MQTT协议是基于TCP，而CoAP协议是基于UDP。从应用方向来分析，主要区别有以下几点：</p>
+<p>MQTT协议不支持带有类型或者其它帮助Clients理解的标签信息，也就是说所有MQTT Clients必须要知道消息格式。而CoAP协议则相反，因为CoAP内置发现支持和内容协商，这样便能允许设备相互窥测以找到数据交换的方式。</p>
+<p>MQTT是<strong>长连接</strong>而CoAP是<strong>无连接</strong>。MQTT Clients与Broker之间保持<strong>TCP长连接</strong>，这种情形在NAT环境中也不会产生问题。如果在NAT环境下使用CoAP的话，那就需要采取一些NAT穿透性手段。</p>
+<p>MQTT是多个客户端通过中央代理进行消息传递的<strong>多对多协议</strong>。它主要通过让<strong>客户端发布消息</strong>、<strong>代理决定消息路由</strong>和复制来解耦消费者和生产者。MQTT就是相当于<strong>消息传递的实时通讯总线</strong>。CoAP基本上就是一个在Server和Client之间传递状态信息的<strong>单对单协议</strong>。</p>
+<h3 id="第九章-低功耗广域网通信"><a href="#第九章-低功耗广域网通信" class="headerlink" title="第九章:低功耗广域网通信"></a>第九章:低功耗广域网通信</h3><h4 id="LPWAN概念及特点"><a href="#LPWAN概念及特点" class="headerlink" title="LPWAN概念及特点"></a>LPWAN概念及特点</h4><p>低功耗广域网（Low Power Wide Area Network，LPWAN）是为了因应物联网（Internet of Things，IoT）远距离通讯需求而产生的技术，具有高覆盖、低功耗和广域连接等特性。</p>
+<p>在LPWAN出现以前，已存在多种通信技术，<strong>短距离的有WiFi、蓝牙、Zigbee等，长距离的则有2G、3G、4G等</strong>，但是如果把这些无线通信技术按照功耗与传输距离这两个维度分来的话，可以发现在<strong>功耗低、距离远这个范围的技术还有所欠缺</strong>，而<strong>LPWAN技术的出现正好弥补了这个短板。</strong></p>
+<p>低功耗广域网（LPWAN）是一种远距离低功耗的无线通信网络。多数 LPWA 技术可以实现几公里甚至几十公里的网络覆盖。由于其网络覆盖范围广、终端功耗低等特点其更适合于大规模的物联网应用部署。</p>
+<p><strong>LPWAN拥有以下主要特点：</strong>(1)低功耗：电池寿命可长达 10 年 (2)远距离：覆盖范围广，可达几十公里，在城市环境中的工作范围通常也超过2km (3)低数据速率：占用带宽小，传输的数据量少，通信频次低 (4)传输时延不敏感：对数据传输实时性要求不高 (5)低成本：由于规模大要求部署的成本低。</p>
+<p><strong>LPWAN适用于长距离传输少量数据，同时电池寿命能够维持多年的应用场景</strong>。这是LPWAN与蓝牙、RFID、蜂窝M2M和ZigBee等其他无线网络协议的主要区分。</p>
+<h4 id="LPWAN的应用"><a href="#LPWAN的应用" class="headerlink" title="LPWAN的应用"></a>LPWAN的应用</h4><p>LPWAN应用分成了五类：智慧工业（Smart Industry）、智慧公共事业（Smart Utilities）、智慧城市（Smart Cities）、智慧建筑（Smart Buildings）及其他应用（Other applications）。</p>
+<h4 id="蜂窝LPWA技术"><a href="#蜂窝LPWA技术" class="headerlink" title="蜂窝LPWA技术"></a>蜂窝LPWA技术</h4><p><strong>NB-IoT</strong> - 即Cat-NB1，Narrowband IoT，窄带物联网。新增到LTE平台的无线电规范，针对低端市场而优化。</p>
+<p><strong>eMTC</strong> - 即Cat M1，Long-Term Evolution Enhanced Machine Type Communications, 长期演进增强机器类通信。基于Release 12规范的改进（UE Cat0, 新的省电模式：PSM），针对机器类型通信的进一步LTE增强功能</p>
+<p><strong>EC-GSM-IoT - Extended Coverage GSM for Internet of Thing</strong>s, 扩展覆盖范围GSM物联网。EC-GSM-IoT建立在GPRS/EGPRS基础之上，EGPRS的增强功能并与PSM相结合，使得GSM/EDGE可以面向物联网市场。</p>
+<h3 id="第十章-物联网云平台"><a href="#第十章-物联网云平台" class="headerlink" title="第十章:物联网云平台"></a>第十章:物联网云平台</h3><p>物联网云平台是把物联网和云计算技术堆栈融合在一起的平台，一般支持物联网智能终端汇聚、应用开发运行服务和轻量级应用提供的云平台，旨在降低物联网应用开发的准入门槛，降低智能硬件的接入门槛，提供端到端的解决方案，服务于终端开发者、能力提供商、应用开发商等。</p>
+<p><strong>物联网是将整个物理世界的数据进行采集和传输</strong>，从而达到智慧化。而<strong>物联网云平台正是向下接入分散的物联网传感层</strong>，汇集传感数据；<strong>向上则是集成物联网行业各种应用</strong>。</p>
+<p><strong>物联网云平台的主要功能如下：</strong></p>
+<p><strong>(1)可扩展性</strong>：物联网云平台一般支持大量同步设备连接，能够监控设备性能并支持进行扩展。支持T-link、MQTT、LWM2M等多种协议的设备接入，既满足长连接的实时性需求，也满足短连接的低功耗需求。</p>
+<p><strong>(2)设备管理功能</strong></p>
+<p>•云计算API - 能够更好地管理设备，对大量设备进行细分以实现更精细的控制，并实时监控设备的运行状况。</p>
+<p>•开发人员工具 - 一个核心界面或一组工具，允许组织以无线方式管理和重新编程其物联网设备。</p>
+<p>•设备命令和控制 - 基于云计算的功能，允许用户通过其Rest API结构控制变量和事件。</p>
+<p>•事件日志 -允许组织实时查看设备发生情况的界面，以改善查找与其相关的数据的体验。</p>
+<p>•远程诊断 - 允许组织主动监视设备运行状况的功能，并在出现警告标志时采取先发制人的行动。</p>
+<p><strong>(3)无线固件更新</strong></p>
+<p>  无线(OTA)固件更新是任何物联网云平台的重要组成部分。无线固件是指远程更新嵌入式设备上的代码的做法。</p>
+<p><strong>(4)数据管理</strong></p>
+<p>主要对设备上报的数据按照用户设定的规则进行数据加工和数据清洗。应用根据加工或清洗后的数据做出相应的动作，比如：数据推送提醒，告警提醒等。</p>
+<p><strong>(5)安全性。保障设备、信息安全。</strong></p>
+<p>硬件密钥 - 每个设备都应有自己的私钥，因此未经授权的设备不能应用在组织中。</p>
+<p>双因素身份验证 - 在物联网方面，组织总是需要额外的安全性。在其可以访问设备之前，通过添加第二个步骤来保护其帐户，在可以访问自己设备之前验证身份。</p>
+<p>基于角色的访问控制 - 对于大型公司来说，需要一个物联网云平台，允许其控制谁可以管理和读取其设备上的数据。</p>
+<p>没有开放端口 - 所有远程设备都不应为端口扫描程序或主动端攻击保留打开的传入端口</p>
+<p><strong>接入协议</strong></p>
+<p><strong>(1)LwM2M 轻量级机器到机器 （Lightweight Machine-To-Machine）应用层协议</strong></p>
+<p>协议基于REST架构。协议的消息传递是通过CoAP协议来达成的。协议定义了一个紧凑高效又不乏扩展性的数据模型。协议最主要的实体包括LwM2M Server和LwM2M Client。LwM2M Serve作为服务器，部署在M2M服务供应商处或网络服务供应商处。LwM2M Client作为客户端，部署在各个LwM2M设备上。</p>
+<p><strong>设备侧适用特点</strong>：使用NB网络； 对于深度和广度覆盖要求高； 对成本和功耗十分敏感； 对数据传输的实时性要求不高； 存在海量连接，需要传输加密；周期性上报特点明显；</p>
+<p><strong>平台侧提供功能</strong>： 存储设备上报的资源列表及数据； 下发数据及命令至设备；接收海量大并发的数据传输和存储；数据推送到应用；</p>
+<p><strong>典型适用行业：</strong>水、电、气、暖等智能表具；智能井盖等市政场景。</p>
+<p><strong>(2)MQTT协议接入</strong></p>
+<p><strong>设备侧适用特点</strong>：需要设备上报数据到平台；需要实时接收控制指令；有充足的电量支持设备保持在线；需要保持长连接状态；</p>
+<p><strong>平台侧提供功能</strong>：存储设备上报的数据点；下发应用实时、离线自定义数据或命令；下发固件更新地址通知；提供数据推送到应用；基于topic的消息订阅/发布。</p>
+<p><strong>典型适用行业：</strong>可灵活适用于多种场景 </p>
+<p><strong>(3)TCP透传</strong></p>
+<p>TCP面向连接（如打电话要先拨号建立连接）。提供可靠的服务，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达。传输效率相对较低。连接只能是点到点、一对一的。</p>
+<p><strong>设备侧适用特点</strong>：保持长连接；双向通信；用户自定义通信数据格式；</p>
+<p><strong>平台侧提供功能</strong>：支持上传自定义的脚本解析自定义数据；存储设备上报的数据点；支持自定义命令下发；支持数据推送到应用； </p>
+<p><strong>典型适用行业</strong>：用户自定义数据协议；简单控制类场景如共享单车。</p>
+<p><strong>（4）HTTP</strong></p>
+<p><strong>设备侧适用特点：</strong>只上报传感器数据到平台；无需下行控制指令到设备；</p>
+<p><strong>平台侧提供功能：</strong>存储设备上报的数据点；提供API接口实现设备管理；提供数据推送到应用；</p>
+<p><strong>典型适用行业：</strong>简单数据上报场景</p>
+<p><strong>（5）omodbus协议接入</strong></p>
+<p><strong>设备侧适用特点：</strong>设备类型主要是基于TCP的DTU；DTU下挂设备为标准modbus协议通信设备</p>
+<p><strong>平台侧提供功能：</strong>自定义配置采集命令以及采集周期；存储设备上报的数据点；下发自定义modbus命令；数据推送到应用。</p>
+<p><strong>典型适用行业</strong>：使用Modbus+DTU进行数据采集的行业</p>
+<h2 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h2><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p><strong>物联网感知识别设备</strong>：对应一些物联网终端感知识别设备，比如温湿度传感器节点。</p>
+<p><strong>物联网网关</strong>：物联网感知识别终端设备一般通过短距离无线通信技术接入互联网，这里一般需要一个转接设备，就是物联网网关。</p>
+<p><strong>物联网云平台</strong>：物联网服务端平台，一般提供物联网数据的存储、处理和展示，还提供物联网终端设备管理等功能。</p>
+<p><strong>用户端</strong>：基于物联网服务端平台提供的功能，面向用户的应用程序，可以是手机应用程序、桌面应用程序、Web应用程序等。</p>
+<h3 id="实验一：基于Arduino和App-Inventor的温湿度监视器"><a href="#实验一：基于Arduino和App-Inventor的温湿度监视器" class="headerlink" title="实验一：基于Arduino和App Inventor的温湿度监视器"></a>实验一：基于Arduino和App Inventor的温湿度监视器</h3><p>实验一构建了一个很简单的物联网系统，从结构上来看它包含了物联网的感知层，拥有温度传感器设备，也有基于App inventor开发的应用层的程序。二者通过近距离无线通信技术<strong>蓝牙</strong>进行交互。感知层温度传感器获取当前温湿度信息，下位机将获取到的<strong>温湿度数据</strong>通过<strong>串口</strong>发送给<strong>蓝牙模块</strong>，之后蓝牙模块转发到上位机（应用层的手机），最终实现实时检测环境温度功能。<del>这个实验较为简单，感觉重要的应该是下面的一个实验</del></p>
+<h3 id="实验二：简单物联网网关及物联网系统构建"><a href="#实验二：简单物联网网关及物联网系统构建" class="headerlink" title="实验二：简单物联网网关及物联网系统构建"></a>实验二：简单物联网网关及物联网系统构建</h3><p>实验二构建了一个较为完善的物联网系统，体现物联网的基本体系结构，从结构上来看它包含了物联网的感知层，拥有温度传感器设备，有智能手机充当的物联网网关作为网络层，还有在服务器上搭建的MQTT协议的物联网云平台作为应用层。整个体系结构较为完整。</p>
+<p>由于下位机不具备联网功能，我们需要通过在智能手机安装<strong>基于MQTT协议的APP</strong>让智能手机充当物联网网关。首先是下位机读取到温湿度传感器的数据，通过近距离无线通信技术<strong>蓝牙</strong>进行交互将获取到的<strong>温湿度数据</strong>通过<strong>串口</strong>发送给<strong>蓝牙模块</strong>，之后蓝牙模块转发到智能手机上，然后智能手机通过MQTT客户端向指定的话题发送数据。电脑端也充当一个客户端，连接到阿里云上面的服务器，之后订阅手机端发送数据的话题，就能实现手机将测得的温湿度发送到云端服务器，云端服务器将向订阅该话题的客户端发送温湿度数据，最后完成实验。</p>
+<p>通过此次实验，基于重要通信协议MQTT协议，它的订阅发布模式是一种一对多的消息分发机制，不同于点对点的协议，消息不是直接从发送器发送到接收器（即点对点），而是由MQTT server（或称为 MQTT Broker）分发的。这次实验也是让我们搭建了一个简单的物联网系统。由于Arduino没有接入互联网，所以我们通过手机接收数据，手机同服务器进行连接，手机起到了一个网关的作用。让整个体系结构以下就明了起来。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/25/%E5%9F%BA%E4%BA%8Enode.js%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%89%8B%E6%9C%BA%E9%80%9A%E8%BF%87%E7%83%AD%E7%82%B9%E8%BF%9E%E6%8E%A5%E7%94%B5%E8%84%91%E5%AE%9E%E7%8E%B0MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/">
+                        <span class="hidden-mobile">基于node.js搭建简单的MQTT服务器，手机通过热点连接电脑实现MQTT服务器测试</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","appKey":"oU9vzJmr9meyrSQCrA1gUtvT","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+   <div class="music-player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=513360721&auto=1&height=66"></iframe>
+    </div>
+
+  
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('09/08/2021 8:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/qipao.js"></script>
+<script src="/js/xiaotiao.js"></script>
+<script src="/js/shubiao.js"></script>
+<script src="/js/xiaoxx.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
