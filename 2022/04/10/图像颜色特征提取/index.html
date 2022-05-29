@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="图像颜色特征提取（颜色直方图，颜色矩）–python颜色直方图颜色直方图用以反映图像颜色的组成分布，即各种颜色出现的概率。Swain和Ballard最先提出了应用颜色直方图进行图像特征提取的方法，首先利用颜色空间三个分量的剥离得到颜色直方图，之后通过观察实验数据发现将图像进行旋转变换、缩放变换、模糊变换后图像的颜色直方图改变不大，即图像直方图对图像的物理变换是不敏感的。因此常提取颜色特征并用颜色直">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像颜色特征提取">
+<meta property="og:url" content="http://example.com/2022/04/10/%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/index.html">
+<meta property="og:site_name" content="Kreal study blog">
+<meta property="og:description" content="图像颜色特征提取（颜色直方图，颜色矩）–python颜色直方图颜色直方图用以反映图像颜色的组成分布，即各种颜色出现的概率。Swain和Ballard最先提出了应用颜色直方图进行图像特征提取的方法，首先利用颜色空间三个分量的剥离得到颜色直方图，之后通过观察实验数据发现将图像进行旋转变换、缩放变换、模糊变换后图像的颜色直方图改变不大，即图像直方图对图像的物理变换是不敏感的。因此常提取颜色特征并用颜色直">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-10T07:15:10.000Z">
+<meta property="article:modified_time" content="2022-05-29T07:15:32.719Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CBIR">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>图像颜色特征提取 - Kreal study blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/ccs/daxiji.css%20-%20/ccs/bangshidiy.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","app_key":"oU9vzJmr9meyrSQCrA1gUtvT","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kreal</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/test00.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="图像颜色特征提取">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-10 15:15" pubdate>
+        April 10, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">图像颜色特征提取</h1>
+            
+            <div class="markdown-body">
+              <h1 id="图像颜色特征提取（颜色直方图，颜色矩）–python"><a href="#图像颜色特征提取（颜色直方图，颜色矩）–python" class="headerlink" title="图像颜色特征提取（颜色直方图，颜色矩）–python"></a>图像颜色特征提取（颜色直方图，颜色矩）–python</h1><h2 id="颜色直方图"><a href="#颜色直方图" class="headerlink" title="颜色直方图"></a><strong>颜色直方图</strong></h2><p>颜色直方图用以反映图像颜色的组成分布，即各种颜色出现的概率。Swain和Ballard最先提出了应用颜色直方图进行图像特征提取的方法，首先利用颜色空间三个分量的剥离得到颜色直方图，之后通过观察实验数据发现将图像进行旋转变换、缩放变换、模糊变换后图像的颜色直方图改变不大，即图像直方图对图像的物理变换是不敏感的。因此常提取颜色特征并用颜色直方图应用于衡量和比较两幅图像的全局差。另外，如果图像可以分为多个区域，并且前景与背景颜色分布具有明显差异，则颜色直方图呈现双峰形。</p>
+<p>颜色直方图也有其缺点：由于颜色直方图是全局颜色统计的结果，因此丢失了像素点间的位置特征。可能有几幅图像具有相同或相近的颜色直方图，但其图像像素位置分布完全不同。因此，图像与颜色直方图得多对一关系使得颜色直方图在识别前景物体上不能获得很好的效果。</p>
+<p>考虑到颜色直方图的以上问题，主色调直方图便产生了。所谓主色调直方图基于假设少数几个像素的值能够表示图像中的绝大部分像素，即出现频率最高的几个像素被选为主色，仅用主色构成的主色调直方图描述一幅图像。这样的描述子并不会降低通过颜色特征进行匹配的效果，因为从某种角度将，频度出现很小的像素点可以被视为噪声。</p>
+<h2 id="颜色矩"><a href="#颜色矩" class="headerlink" title="颜色矩"></a><strong>颜色矩</strong></h2><p>  颜色矩是一种有效的颜色特征，由Stricker和Orengo提出，该方法利用线性代数中矩的概念，将图像中的颜色分布用其矩表示。利用颜色一阶矩（平均值Average）、颜色二阶矩（方差Variance）和颜色三阶矩（偏斜度Skewness）来描述颜色分布。与颜色直方图不同，利用颜色矩进行图像描述无需量化图像特征。由于每个像素具有颜色空间的三个颜色通道，因此图像的颜色矩有9个分量来描述。</p>
+<h2 id="颜色直方图代码实现"><a href="#颜色直方图代码实现" class="headerlink" title="颜色直方图代码实现"></a>颜色直方图代码实现</h2><p>颜色直方图一般用于统计图片不同通道像素强度的分布，并可以基于此来实现对比度提升、以及简单的目标识别、跟踪以及分割等任务。在openCV中集成了函数cv2.calcHist()来实现直方图的计算。<br>函数定义如下:</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">cv2.calc<span class="hljs-constructor">Hist(<span class="hljs-params">images</span>, <span class="hljs-params">channels</span>, <span class="hljs-params">mask</span>, <span class="hljs-params">histSize</span>, <span class="hljs-params">ranges</span>[, <span class="hljs-params">hist</span>[, <span class="hljs-params">accumulate</span>]])</span> → hist<br>其中images 可为单张或多张图像的<span class="hljs-built_in">array</span><br>channels 为要计算的通道数<br>mask 为图像掩膜<br>histSize 为直方图的柱子数量，即将数据分布在多少个区间上计数<br>range 为直方图取值范围<br>hist为返回值，不用填<br>accumulate 多张图的时候是否叠加<br>所以一般调用的时候只需要填上面四个参数,掩膜为None，范围<span class="hljs-number">0.0</span>-<span class="hljs-number">255.0</span>，数量<span class="hljs-number">255</span>个：<br>hist = cv2.calc<span class="hljs-constructor">Hist(<span class="hljs-params">img</span>, [0]， None，[256], [0.0,255.0])</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># import the necessary packages</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ColorDescriptor</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, bins</span>):</span><br>        <span class="hljs-comment"># 存储 3D 直方图的数量</span><br>        self.bins = bins<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">describe</span>(<span class="hljs-params">self, image</span>):</span><br>        <span class="hljs-comment"># 将图像转换为 HSV 色彩空间并初始化</span><br>        <span class="hljs-comment"># 用于量化图像的特征</span><br>        image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)<br>        features = []<br>        <span class="hljs-comment"># 获取尺寸并计算图像的中心</span><br>        (h, w) = image.shape[:<span class="hljs-number">2</span>]<br>        (cX, cY) = (<span class="hljs-built_in">int</span>(w * <span class="hljs-number">0.5</span>), <span class="hljs-built_in">int</span>(h * <span class="hljs-number">0.5</span>))<br>        <span class="hljs-comment"># 将图像分成四份 rectangles/segments (top-left,top-right, bottom-right, bottom-left)</span><br>        segments = [(<span class="hljs-number">0</span>, cX, <span class="hljs-number">0</span>, cY), (cX, w, <span class="hljs-number">0</span>, cY), (cX, w, cY, h), (<span class="hljs-number">0</span>, cX, cY, h)]<br>        <span class="hljs-comment"># 构建代表图像中心的椭圆蒙版</span><br>        (axesX, axesY) = (<span class="hljs-built_in">int</span>(w * <span class="hljs-number">0.75</span>) // <span class="hljs-number">2</span>, <span class="hljs-built_in">int</span>(h * <span class="hljs-number">0.75</span>) // <span class="hljs-number">2</span>)<br>        ellipMask = np.zeros(image.shape[:<span class="hljs-number">2</span>], dtype=<span class="hljs-string">&quot;uint8&quot;</span>)<br>        cv2.ellipse(ellipMask, (cX, cY), (axesX, axesY), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">360</span>, <span class="hljs-number">255</span>, -<span class="hljs-number">1</span>)<br>        <span class="hljs-comment"># loop over the segments</span><br>        <span class="hljs-keyword">for</span> (startX, endX, startY, endY) <span class="hljs-keyword">in</span> segments:<br>            <span class="hljs-comment"># 为图像的每个角构建一个掩码，从中减去椭圆中心</span><br>            cornerMask = np.zeros(image.shape[:<span class="hljs-number">2</span>], dtype=<span class="hljs-string">&quot;uint8&quot;</span>)<br>            cv2.rectangle(cornerMask, (startX, startY), (endX, endY), <span class="hljs-number">255</span>, -<span class="hljs-number">1</span>)<br>            cv2.ellipse(ellipMask, (cX, cY), (axesX, axesY), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">360</span>, <span class="hljs-number">255</span>, -<span class="hljs-number">1</span>)<br>            <span class="hljs-comment"># 从图像中提取颜色直方图，然后更新特征向量</span><br>            hist = self.histogram(image, cornerMask)<br>            features.extend(hist)<br>        <span class="hljs-comment"># 从椭圆区域提取颜色直方图并更新特征向量</span><br>        hist = self.histogram(image, ellipMask)<br>        features.extend(hist)<br>        <span class="hljs-comment"># 返回特征向量</span><br>        <span class="hljs-keyword">return</span> features<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">histogram</span>(<span class="hljs-params">self, image, mask</span>):</span><br>        <span class="hljs-comment"># 使用提供的每个通道的 bin 数量，从图像的遮罩区域中提取 3D 颜色直方图</span><br>        hist = cv2.calcHist([image], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], mask, self.bins, [<span class="hljs-number">0</span>, <span class="hljs-number">180</span>, <span class="hljs-number">0</span>, <span class="hljs-number">256</span>, <span class="hljs-number">0</span>, <span class="hljs-number">256</span>])<br>        hist = cv2.normalize(hist, hist).flatten()<br>        <span class="hljs-comment"># 返回直方图</span><br>        <span class="hljs-keyword">return</span> hist<br></code></pre></td></tr></table></figure>
+
+<h2 id="颜色矩代码实现"><a href="#颜色矩代码实现" class="headerlink" title="颜色矩代码实现"></a>颜色矩代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># import the necessary packages</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">color_moments</span>(<span class="hljs-params">filename</span>):</span><br>    img = cv2.imread(filename)<br>    <span class="hljs-keyword">if</span> img <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span><br>    <span class="hljs-comment"># Convert BGR to HSV colorspace</span><br>    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)<br>    <span class="hljs-comment"># Split the channels - h,s,v</span><br>    h, s, v = cv2.split(hsv)<br>    <span class="hljs-comment"># Initialize the color feature</span><br>    color_feature = []<br>    <span class="hljs-comment"># N = h.shape[0] * h.shape[1]</span><br>    <span class="hljs-comment"># The first central moment - average</span><br>    h_mean = np.mean(h)  <span class="hljs-comment"># np.sum(h)/float(N)</span><br>    s_mean = np.mean(s)  <span class="hljs-comment"># np.sum(s)/float(N)</span><br>    v_mean = np.mean(v)  <span class="hljs-comment"># np.sum(v)/float(N)</span><br>    color_feature.extend([h_mean, s_mean, v_mean])<br>    <span class="hljs-comment"># The second central moment - standard deviation</span><br>    h_std = np.std(h)  <span class="hljs-comment"># np.sqrt(np.mean(abs(h - h.mean())**2))</span><br>    s_std = np.std(s)  <span class="hljs-comment"># np.sqrt(np.mean(abs(s - s.mean())**2))</span><br>    v_std = np.std(v)  <span class="hljs-comment"># np.sqrt(np.mean(abs(v - v.mean())**2))</span><br>    color_feature.extend([h_std, s_std, v_std])<br>    <span class="hljs-comment"># The third central moment - the third root of the skewness</span><br>    h_skewness = np.mean(<span class="hljs-built_in">abs</span>(h - h.mean())**<span class="hljs-number">3</span>)<br>    s_skewness = np.mean(<span class="hljs-built_in">abs</span>(s - s.mean())**<span class="hljs-number">3</span>)<br>    v_skewness = np.mean(<span class="hljs-built_in">abs</span>(v - v.mean())**<span class="hljs-number">3</span>)<br>    h_thirdMoment = h_skewness**(<span class="hljs-number">1.</span>/<span class="hljs-number">3</span>)<br>    s_thirdMoment = s_skewness**(<span class="hljs-number">1.</span>/<span class="hljs-number">3</span>)<br>    v_thirdMoment = v_skewness**(<span class="hljs-number">1.</span>/<span class="hljs-number">3</span>)<br>    color_feature.extend([h_thirdMoment, s_thirdMoment, v_thirdMoment])<br>    <span class="hljs-keyword">return</span> color_feature<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CBIR/">CBIR</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/09/CBIR%20system/">
+                        <span class="hidden-mobile">CBIR system</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"rBUy06aXapbGc0tNnWB70WSC-gzGzoHsz","appKey":"oU9vzJmr9meyrSQCrA1gUtvT","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+   <div class="music-player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=513360721&auto=1&height=66"></iframe>
+    </div>
+
+  
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('09/08/2021 8:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/qipao.js"></script>
+<script src="/js/xiaotiao.js"></script>
+<script src="/js/shubiao.js"></script>
+<script src="/js/xiaoxx.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
